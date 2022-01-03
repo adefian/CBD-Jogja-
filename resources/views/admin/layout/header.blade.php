@@ -2,9 +2,9 @@
     <div class="top-left">
         <div class="navbar-header">
             <a href="./"><img src="{{asset('public/assets/admin/images/logobpcb.png')}}" style="width: 50px; height: auto;" alt="" > </a>
-             <b style="font-size: 24px; color: green;"> BPCB DIY</b>
+             <b style="font-size: 24px; color: green; margin-top: 5px;"> BPCB DIY</b>
             <!-- <a class="navbar-brand hidden" href="./"><img src="{{asset('public/assets/admin/images/logo2.png')}}"  alt="Logo"></a> -->
-            <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>
     <div class="top-right">
@@ -95,7 +95,7 @@
 
                     <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    <a class="nav-link" href="{{ route('logout') }}"><i class="fa fa-power -off"></i>Logout</a>
                 </div>
             </div>
 

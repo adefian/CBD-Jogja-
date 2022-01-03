@@ -36,4 +36,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     //membuat fungsi isInstansi untuk Instansi
+    public function isInstansi(){
+        //jika role_name=instansi maka benar
+        if($this->role == 'instansi'){
+            return true;
+        }
+            return false;
+    }
+    public function isAdmin(){
+        //jika role_name=Admin maka benar
+        if($this->role == 'admin'){
+            return true;
+        }
+            return false;
+    }
+    public function isUmum(){
+        //jika role_name=Umum maka benar
+        if($this->role == 'umum'){
+            return true;
+        }
+            return false;
+    }
 }
