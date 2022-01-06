@@ -32,14 +32,14 @@
               <li><a class="nav-link scrollto" href="#">REKAP</a></li>
               <li class="dropdown"><a href="#peta"><span>PETA</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Peta Cagar Budaya</a></li>
+              <li><a href="{{ route('peta') }}">Peta Cagar Budaya</a></li>
               <!-- <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
               <li><a href="#">Drop Down 5</a></li> -->
             </ul>
             </li>
-          <li><a class="nav-link scrollto" href="#">PENCARIAN</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#">PENCARIAN</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">KONTAK</a></li>
           <li><a class="nav-link scrollto" href="{{ route('pengajuan_user') }}">PENGAJUAN</a></li>
           <li><a class="nav-link scrollto" href="{{ route('login') }}">LOGIN</a></li>

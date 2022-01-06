@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CagarBudaya;
 
 class WilayahController extends Controller
 {
@@ -13,9 +14,16 @@ class WilayahController extends Controller
      */
     public function index()
     {
-        return view('admin.wilayah.index');
+        $data = CagarBudaya::orderBy('id','desc')->get();
+        return view('admin.wilayah.index',compact('data'));
     }
 
+    public function lihat($id)
+    {
+        $data = CagarBudaya::find($id);
+
+        return view('admin.wilayah.lihat', compact('data'));
+    }
     /**
      * Show the form for creating a new resource.
      *

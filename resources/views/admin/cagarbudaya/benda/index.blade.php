@@ -22,23 +22,11 @@ Benda
 <div class="content">
     <!-- Animated -->
     <div class="animated fadeIn">
-        @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        @endif
-        @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-        @endif
         <!--  Traffic  -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card" style="height: 26rem;">
+                <div class="card">
                     <div class="card-header">
-                        <!-- <h4 style="margin-bottom:20px;">Data Cagar Budaya Benda</h4> -->
-
                         <button type="button" class="btn btn-sm btn-success shadow-sm" data-toggle="modal"
                             data-target="#tambah"><i class="fa fa-plus"></i> Tambah Data</button>
 
@@ -80,7 +68,7 @@ Benda
                                 <tbody>
 
                                     @foreach ($data as $data)
-                                    <tr style="text-align: center; vertical-align: middle; max-height:100px;">
+                                    <tr style="text-align: center; vertical-align: middle;">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->tempat_penyimpanan }}</td>
@@ -97,16 +85,17 @@ Benda
                                         <td>{{ $data->bahan }}</td>
                                         <td>{{ $data->warna }}</td>
                                         <td>
-                                            <img src="{{ $data->Foto_CBBenda() }}" alt="foto benda"
-                                                height="80px">
+                                            <img src="{{ $data->Foto_CB() }}" alt="foto benda" height="80px">
                                         </td>
                                         <td>
                                             <a href="{{ route('cagarbudaya_benda.edit', $data->id) }}">
-                                                <button class="btn btn-warning btn-sm fa fa-edit edit" title="Edit"></button>
+                                                <button class="btn btn-warning btn-sm fa fa-edit edit"
+                                                    title="Edit"></button>
                                             </a>
 
-                                            <a href="#" data-toggle="modal" onclick="" data-target="#DeleteModal">
-                                                <button class="fa fa-trash btn-danger btn-sm " title="Hapus"></button>
+                                            <a href="#" data-toggle="modal" onclick="deleteData({{$data->id}})"
+                                                data-target="#DeleteModal">
+                                                <button class="fa fa-trash btn-danger btn-sm" title="Hapus"></button>
                                             </a>
                                         </td>
                                     </tr>
@@ -146,9 +135,9 @@ Benda
                     {{ csrf_field() }}
                     {{ method_field('POST') }}
                     <p>Apakah anda yakin ingin Menghapus data ini ?</p>
+
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2" data-dismiss="modal"
-                        onclick="formSubmit()">Hapus</button>
+                    <button type="submit" name="" class="btn btn-danger float-right mr-2" onclick="formSubmit()">Hapus</button>
                 </div>
             </div>
         </form>
@@ -156,3 +145,19 @@ Benda
 </div>
 
 @endsection('content')
+
+@section('js')
+
+<!-- ====================== Hapus Data ====================== -->
+
+<script type="text/javascript">
+function deleteData(id) {
+    var id = id;
+    var url = '{{route("cagarbudaya_benda.hapus", ":id") }}';
+    url = url.replace(':id', id);
+    $("#deleteForm").attr('action', url);
+}
+</script>
+<!-- ====================== END Hapus Data ====================== -->
+
+@endsection

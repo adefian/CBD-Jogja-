@@ -11,14 +11,14 @@ class CagarBudaya extends Model
     protected $fillable = [
             'pendaftar',
             'kategori',
-            'periodesasi_id',
+            'periodesasi',
             'peringkat_id',
             'manfaat_id',
             'jenis_id',
-            'keterawatan_id',
+            'kondisi',
             'registrasi_id',
             'kepemilikan_id',
-            'kabupaten_id',
+            'kabupaten',
             'nama',
             'hindu',
             'budha',
@@ -65,12 +65,29 @@ class CagarBudaya extends Model
             'no_registrasi',
     ];
 
-    public function Foto_CBBenda()
+    
+    public function kabupaten()
+    {
+        return $this->belongsTo('App\Regency', 'kabupaten_id');
+    }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo('App\District', 'kecamatan_id');
+    }
+
+    public function kelurahan()
+    {
+        return $this->belongsTo('App\Village', 'kelurahan_id');
+    }
+
+    public function Foto_CB()
     {
         if(!$this->foto){
-            return asset('public/Images/cagar_budaya/benda/default.png');
+            return asset('public/Images/cagar_budaya/default.png');
         }else{
-            return asset('public/Images/cagar_budaya/benda/'.$this->foto);
+            return asset('public/Images/cagar_budaya/'.$this->foto);
         }
     }
+
 }

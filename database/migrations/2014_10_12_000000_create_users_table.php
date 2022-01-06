@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('role');
-            $table->string('username');
+            $table->string('name');
             $table->string('email')->nullable();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -27,18 +27,18 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert(
             [[
                 'role' => 'instansi',
-                'username' => 'instansi',
+                'name' => 'instansi',
                 'email' => 'instansi@gmail.com',
                 'password' => bcrypt('1234567'),
             ],[
                 'role' => 'admin',
-                'username' => 'admin',
+                'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('1234567'),
             ],[
-                'role' => 'umum',
-                'username' => 'umum',
-                'email' => 'umum@gmail.com',
+                'role' => 'masyarakat',
+                'name' => 'masyarakat',
+                'email' => 'masyarakat@gmail.com',
                 'password' => bcrypt('1234567'),
             ]]
         );

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AuthUmum
+class AuthMasyarakat
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class AuthUmum
     {
         $user = auth()->user();
 
-        if(!$user->isUmum()){
+        if(!$user->isMasyarakat()){
             return redirect()->back();
         }
         return $next($request);

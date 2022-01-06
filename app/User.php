@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -52,9 +52,9 @@ class User extends Authenticatable
         }
             return false;
     }
-    public function isUmum(){
-        //jika role_name=Umum maka benar
-        if($this->role == 'umum'){
+    public function isMasyarakat(){
+        //jika role_name=Masyarakat maka benar
+        if($this->role == 'masyarakat'){
             return true;
         }
             return false;

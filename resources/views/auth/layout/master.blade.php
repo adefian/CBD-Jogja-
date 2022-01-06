@@ -8,11 +8,10 @@
 
 <head>
     @include('auth.layout.top')
-    
 </head>
 
 <body>
-
+    
         <!-- Content -->
         @yield('content')
         <!-- /.content -->
@@ -21,9 +20,11 @@
 
         <!-- Footer -->
         @include('auth.layout.footer')
+        
+        <!-- End Footer -->
 
-       
-    <!-- End Footer -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @include('sweetalert::alert')
 </body>
 
 </html>

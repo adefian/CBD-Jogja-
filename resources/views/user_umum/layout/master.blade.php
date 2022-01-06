@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('public/assets/user/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('public/assets/user/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('public/assets/user/img/logobpcb.png')}}" rel="icon">
+  <!-- <link href="{{asset('public/assets/user/img/apple-touch-icon.png')}}" rel="apple-touch-icon"> -->
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -71,7 +71,10 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('public/assets/user/js/main.js')}}"></script>
-
+  
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @include('sweetalert::alert')
+  @yield('js')
 </body>
 
 </html>

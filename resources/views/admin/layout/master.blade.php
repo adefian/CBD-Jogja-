@@ -33,8 +33,9 @@
         <!-- Footer -->
         
         @include('admin.layout.footer')
-      
-
+        
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        @include('sweetalert::alert')
         <!-- End Footer -->
 </body>
 

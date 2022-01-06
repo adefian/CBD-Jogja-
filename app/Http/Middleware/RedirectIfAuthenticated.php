@@ -21,7 +21,8 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             // return redirect(RouteServiceProvider::HOME);
             
-            return redirect()->back()->with('error', 'Anda telah masuk dalam akun');
+            toast('Anda telah masuk dalam akun', 'error');
+            return redirect()->back();
         }
 
         return $next($request);

@@ -28,31 +28,23 @@
                     </div>
                     <div class="form-group">
                         <label>Kabupaten</label>
-                        <select type="text" class="form-control" id="kabupaten" name="kabupaten"
-                            placeholder="">
-                            <option value="">1</option>
-                            <option value="">1</option>
-                            <option value="">1</option>
-                        </select>
+                        <input type="text" class="form-control" id="kabupaten" name="kabupaten" placeholder="Kabupaten">
                     </div>
                     <div class="form-group">
                         <label>Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan"
-                            placeholder="Kecamatan">
+                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Kecamatan">
                     </div>
                     <div class="form-group">
                         <label>Kelurahan/Desa</label>
-                        <input type="text" class="form-control" id="kelurahan" name="kelurahan"
-                            placeholder="Kelurahan/Desa">
+                        <input type="text" class="form-control" id="kelurahan" name="kelurahan" placeholder="Kelurahan">
                     </div>
                     <div class="form-group">
                         <label>Kode Pos</label>
-                        <input type="text" class="form-control" id="kodepos" name="kodepos" placeholder="Kode Pos">
+                        <input type="number" class="form-control" id="kodepos" name="kodepos" placeholder="Kode Pos">
                     </div>
                     <div class="form-group">
                         <label>Pemilik</label>
-                        <input type="text" class="form-control" id="pemilik" name="pemilik"
-                            placeholder="Pemilik">
+                        <input type="text" class="form-control" id="pemilik" name="pemilik" placeholder="Pemilik">
                     </div>
                     <div class="form-group">
                         <label>Riwayat Kepemilikan</label>
@@ -61,13 +53,11 @@
                     </div>
                     <div class="form-group">
                         <label>Pengelola</label>
-                        <input type="text" class="form-control" id="pengelola" name="pengelola"
-                            placeholder="Pengelola">
+                        <input type="text" class="form-control" id="pengelola" name="pengelola" placeholder="Pengelola">
                     </div>
                     <div class="form-group">
                         <label>Panjang</label>
-                        <input type="text" class="form-control" id="panjang" name="panjang"
-                            placeholder="Panjang">
+                        <input type="text" class="form-control" id="panjang" name="panjang" placeholder="Panjang">
                     </div>
                     <div class="form-group">
                         <label>Lebar</label>
@@ -83,8 +73,7 @@
                     </div>
                     <div class="form-group">
                         <label>Diameter</label>
-                        <input type="text" class="form-control" id="diameter" name="Diameter"
-                            placeholder="Diameter">
+                        <input type="text" class="form-control" id="diameter" name="diameter" placeholder="Diameter">
                     </div>
                     <div class="form-group">
                         <label>Berat</label>
@@ -100,20 +89,11 @@
                     </div>
                     <div class="form-group">
                         <label>Kondisi</label>
-                        <select type="text" class="form-control" id="kondisi" name="kondisi" placeholder="">
-                            <option value="">aa</option>
-                            <option value="">aa</option>
-                            <option value="">aa</option>
-                        </select>
+                        <input type="text" class="form-control" id="kondisi" name="kondisi" placeholder="Kondisi">
                     </div>
                     <div class="form-group">
                         <label>Periodesasi</label>
-                        <select type="text" class="form-control" id="periodesasi" name="periodesasi"
-                            placeholder="">
-                            <option value="">aa</option>
-                            <option value="">aa</option>
-                            <option value="">aa</option>
-                        </select>
+                        <input type="text" class="form-control" id="periodesasi" name="periodesasi" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Sejarah Benda</label>
@@ -122,8 +102,8 @@
                     </div>
                     <div class="form-group">
                         <label>Deskripsi Benda</label>
-                        <textarea type="text" class="form-control" id="deskripsi" name="deskripsi"
-                            placeholder="" required></textarea>
+                        <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder=""
+                            required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Foto Benda</label>

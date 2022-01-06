@@ -17,14 +17,14 @@ class CreateCagarBudayasTable extends Migration
             $table->id();
             $table->string('pendaftar')->nullable();
             $table->string('kategori')->nullable();
-            $table->integer('periodesasi_id')->nullable();
+            $table->string('periodesasi')->nullable();
             $table->integer('peringkat_id')->nullable();
             $table->integer('manfaat_id')->nullable();
             $table->integer('jenis_id')->nullable();
-            $table->integer('keterawatan_id')->nullable();
+            $table->string('kondisi')->nullable();
             $table->integer('registrasi_id')->nullable();
             $table->integer('kepemilikan_id')->nullable();
-            $table->integer('kabupaten_id')->nullable();
+            $table->string('kabupaten')->nullable();
             $table->string('nama')->nullable();
             $table->string('hindu')->nullable();
             $table->string('budha')->nullable();

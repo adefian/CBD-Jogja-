@@ -31,16 +31,6 @@ Edit Cagar Budaya Benda
 <div class="content">
     <!-- Animated -->
     <div class="animated fadeIn">
-        @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        @endif
-        @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-        @endif
         <!--  Traffic  -->
         <div class="row">
             <div class="col-md-12">
@@ -70,9 +60,8 @@ Edit Cagar Budaya Benda
                                     </div>
                                     <div class="form-group">
                                         <label>Kabupaten</label>
-                                        <select class="form-control" name="kabupaten" >
-                                            <option></option>
-                                        </select>
+                                        <input type="text" class="form-control" value="{{ $data->kabupaten }}"
+                                            name="kabupaten" placeholder="Kabupaten">
                                     </div>
                                     <div class="form-group">
                                         <label>Kecamatan</label>
@@ -82,7 +71,7 @@ Edit Cagar Budaya Benda
                                     <div class="form-group">
                                         <label>Kelurahan/Desa</label>
                                         <input type="text" class="form-control" value="{{ $data->kelurahan }}"
-                                            name="kelurahan" placeholder="Kelurahan/Desa">
+                                            name="kelurahan" placeholder="Kelurahan">
                                     </div>
                                     <div class="form-group">
                                         <label>Kode Pos</label>
@@ -96,8 +85,8 @@ Edit Cagar Budaya Benda
                                     </div>
                                     <div class="form-group">
                                         <label>Riwayat Kepemilikan</label>
-                                        <textarea type="text" class="form-control" value="{{ $data->riwayat }}"
-                                            name="riwayat" placeholder="Riwayat Kepemilikan"></textarea>
+                                        <textarea type="text" class="form-control"
+                                            name="riwayat" placeholder="Riwayat Kepemilikan">{{ $data->riwayat }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Pengelola</label>
@@ -117,8 +106,8 @@ Edit Cagar Budaya Benda
                                     <div class="form-group">
                                         <label>Tinggi</label>
                                         <input type="
-                                        " class="form-control" value="{{ $data->tinggi }}"
-                                            name="tinggi" placeholder="Tinggi">
+                                        " class="form-control" value="{{ $data->tinggi }}" name="tinggi"
+                                            placeholder="Tinggi">
                                     </div>
                                     <div class="form-group">
                                         <label>Tebal</label>
@@ -128,7 +117,7 @@ Edit Cagar Budaya Benda
                                     <div class="form-group">
                                         <label>Diameter</label>
                                         <input type="text" class="form-control" value="{{ $data->diameter }}"
-                                            name="Diameter" placeholder="Diameter">
+                                            name="diameter" placeholder="Diameter">
                                     </div>
                                     <div class="form-group">
                                         <label>Berat</label>
@@ -147,21 +136,13 @@ Edit Cagar Budaya Benda
                                     </div>
                                     <div class="form-group">
                                         <label>Kondisi</label>
-                                        <select type="text" class="form-control" value="{{ $data->keperawatan_id }}"
-                                            name="kondisi" placeholder="">
-                                            <option value="">aa</option>
-                                            <option value="">aa</option>
-                                            <option value="">aa</option>
-                                        </select>
+                                        <input type="text" class="form-control" value="{{ $data->kondisi }}"
+                                            name="kondisi" placeholder="Kondisi">
                                     </div>
                                     <div class="form-group">
                                         <label>Periodesasi</label>
-                                        <select type="text" class="form-control" value="{{ $data->periodesasi_id }}"
-                                            name="periodesasi" placeholder="">
-                                            <option value="">aa</option>
-                                            <option value="">aa</option>
-                                            <option value="">aa</option>
-                                        </select>
+                                        <input type="text" class="form-control" value="{{ $data->periodesasi }}"
+                                            name="periodesasi" placeholder="Periodesasi">
                                     </div>
                                     <div class="form-group">
                                         <label>Sejarah Benda</label>
@@ -176,19 +157,54 @@ Edit Cagar Budaya Benda
 
                             </div>
                             <div class="col-6">
-                                <img src="{{ $data->Foto_CBBenda() }}" alt="foto benda" width="80%">
+                                <img src="{{ $data->Foto_CB() }}" alt="foto benda" width="80%">
                                 <div class="form-group mt-2">
                                     <label>Foto Benda</label>
-                                    <input type="file" class="form-control" name="foto" placeholder="" required>
+                                    <input type="file" class="form-control" name="foto" placeholder="">
                                 </div>
 
-                                <button type="button" style="margin-left: 3px;" class="btn btn-danger pull-right"
-                                    data-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-warning ml-2 pull-right">Update</button>
-                                <button data-toggle="modal" data-target="#editModal" class="btn btn-success"
-                                    title="Edit lokasi disini" style="margin-left: auto;">Edit Lokasi</button>
+                                <button type="submit" class="btn btn-warning ml-2">Update</button>
+                                <a href="{{ route('cagarbudaya_benda') }}">
+                                    <button type="button" style="margin-left: 3px;" class="btn btn-danger"
+                                        data-dismiss="modal">Batal</button>
+                                </a>
 
                                 </form>
+                                <hr>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div id="map" style="width: 100%; height: 200px; border-radius: 3px;">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="col-12">
+                                        <form class="needs-validation" novalidate=""
+                                            action="{{ route('cagarbudaya_benda.editlokasi', $data->id) }}"
+                                            method="POST" enctype="multipart/form-data">
+
+                                            {{ csrf_field() }}
+                                            {{ method_field('POST') }}
+
+                                            <div class="form-group">
+                                                <label for="latitude">Latitude</label>
+                                                <div class="input-group">
+                                                    <input type="number" step="any" id="lat" name="latitude"
+                                                        class="form-control" value="{{ $data->latitude }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="longitude">Longitude</label>
+                                                <div class="input-group">
+                                                    <input name="longitude" step="any" id="leng" type="number"
+                                                        class="form-control" value="{{ $data->longitude }}" required>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-success">Edit Lokasi</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,7 +217,7 @@ Edit Cagar Budaya Benda
 </div>
 <!-- .animated -->
 <!-- ====================================== EDIT LOKASI ==================================== -->
-<div class="modal fade" tabindex="-1" role="dialog" id="editModal">
+<!-- <div class="modal fade" tabindex="-1" role="dialog" id="editModal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-between">
@@ -249,7 +265,7 @@ Edit Cagar Budaya Benda
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- ====================================== END EDIT LOKASI ==================================== -->
 
 <!-- ====================== Array ================== -->
@@ -259,94 +275,58 @@ var array = [];
 @if($data)
 <script>
 //Memasukkan data tabel ke array 
-array.push(['<?php echo $data->latitude ?>', '<?php echo $data->longitude ?>', '<?php echo $data->nama ?>',
-    '<?php echo $data->keterangan ?>', '<?php echo $data->kecamatan ?>'
+array.push(['<?php echo $data->nama ?>', '<?php echo $data->latitude ?>', '<?php echo $data->longitude ?>', 
+    '<?php echo $data->deskripsi ?>', '<?php echo $data->kecamatan ?>', '<?php echo $data->foto ?>'
 ]);
 </script>
 @endif
 <!-- ====================== Array ================== -->
 
 @section('js')
-<!-- ====================== Maps ====================== -->
+<!-- ================================ Maps =================================== -->
 
 <script>
-function initialize() {
-    //Cek Support Geolocation
-    if (navigator.geolocation) {
-        //Mengambil Fungsi golocation
-        navigator.geolocation.getCurrentPosition(lokasi);
-    } else {
-        swal("Maaf Browser tidak Support HTML 5");
-    }
-
-    //maps
-    //Variabel Marker
-    var markers;
-
-    function taruhMarker(peta, posisiTitik) {
-
-        if (markers) {
-            // pindahkan marker
-            markers.setPosition(posisiTitik);
-        } else {
-            // buat marker baru
-            markers = new google.maps.Marker({
-                position: posisiTitik,
-                map: peta,
-                icon: 'https://img.icons8.com/plasticine/40/000000/marker.png',
-            });
-        }
-
-    }
-
-    //Buat Peta Input
-    var peta = new google.maps.Map(document.getElementById("mapInput"), {
+function initMap() {
+    var bounds = new google.maps.LatLngBounds();
+    var peta = new google.maps.Map(document.getElementById("map"), {
         center: {
-            lat: -7.8860678,
-            lng: 110.47732111
+            lat: -7.899160514864099,
+            lng: 110.4546618082422
         },
         zoom: 9
     });
+    var infoWindow = new google.maps.InfoWindow(),
+        marker, i;
+    for (var i = 0; i < array.length; i++) {
 
-    //Fungsi untuk geolocation
-    function lokasi(position) {
-        //Mengirim data koordinat ke form input
-        document.getElementById("lat").value = position.coords.latitude;
-        document.getElementById("leng").value = position.coords.longitude;
-        //Current Location
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-        var latlong = new google.maps.LatLng(lat, long);
-
-        //Current Marker 
-        var currentMarker = new google.maps.Marker({
-            position: latlong,
-            icon: 'https://img.icons8.com/plasticine/40/000000/user-location.png',
+        var position = new google.maps.LatLng(array[i][1], array[i][2]);
+        bounds.extend(position);
+        var marker = new google.maps.Marker({
+            position: position,
             map: peta,
-            title: "Anda Disini"
+            icon: 'https://img.icons8.com/plasticine/40/000000/marker.png',
+            title: array[i][0]
         });
-        //Membuat Marker Map dengan Klik
-        var latLng = new google.maps.LatLng(-8.408698, 114.2339090);
-
-        var addMarkerClick = google.maps.event.addListener(peta, 'click', function(event) {
-
-
-            taruhMarker(this, event.latLng);
-
-            //Kirim data ke form input dari klik
-            document.getElementById("lat").value = event.latLng.lat();
-            document.getElementById("leng").value = event.latLng.lng();
-
-        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                var infoWindowContent =
+                    '<h6>' + array[i][0] + '</h6>' +
+                    '<img height="130" style="margin:0 auto; display:block;" src="../public/Images/cagar_budaya/' +
+                    array[i][5] + '"/><br/>' +
+                    'Kecamatan : ' + array[i][4] + '<br/>' +
+                    'Keterangan : ' + array[i][3] + '<br/>';
+                infoWindow.setContent(infoWindowContent);
+                infoWindow.open(peta, marker);
+            }
+        })(marker, i));
     }
 
 }
 </script>
 <!-- ======================== End Maps ====================== -->
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv-h2II7DbFQkpL9pDxNRq3GWXqS5Epts&callback=initialize"
-    type="text/javascript"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv-h2II7DbFQkpL9pDxNRq3GWXqS5Epts&callback=initMap" type="text/javascript"></script>
 @endsection
 
 @endsection

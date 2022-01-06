@@ -34,7 +34,7 @@
 
       <!-- Slide 3 -->
       <div class="carousel-item">
-        <img class="w-100" src="{{asset('public/assets/user/img/slide/candi-prambanan.jpg')}}" alt="" srcset="">
+        <img class="w-100" src="{{asset('public/assets/user/img/slide/slide.jpeg')}}" alt="" srcset="">
         <div class="carousel-container">
           <!-- <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
@@ -63,12 +63,13 @@
   <section id="featured-services" class="featured-services section-bg">
     <div class="container">
 
-      <div class="row no-gutters">
-        <div class="col-lg-4 col-md-6">
+      <div class="row no-gutters" style="text-align: -webkit-center;">
+        
+        <div class="col-lg-4 col-md-6" style="min-height:300px;">
           <div class="icon-box">
             <!-- <div class="icon"><i class="bi bi-laptop"></i></div> -->
             <div class="col-lg-6 order-1 order-lg-2">
-              <img src="{{asset('public/assets/img/cb/candi-sari.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('public/assets/user/img/cb/candi-sari.jpg')}}" class="img-fluid" alt="">
             </div>
             <h4 class="title"><a href="">BANGUNAN CANDI SARI</a></h4>
             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
@@ -78,7 +79,7 @@
           <div class="icon-box">
             <!-- <div class="icon"><i class="bi bi-briefcase"></i></div> -->
             <div class="col-lg-6 order-1 order-lg-2">
-              <img src="{{asset('public/assets/img/cb/kapak.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('public/assets/user/img/cb/kapak.png')}}" class="img-fluid" alt="">
             </div>
             <h4 class="title"><a href="">BENDA KAPAK BATU BELIUNG</a></h4>
             <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
@@ -87,14 +88,29 @@
         <div class="col-lg-4 col-md-6">
           <div class="icon-box">
             <!-- <div class="icon"><i class="bi bi-calendar4-week"></i></div> -->
-            <div class="col-lg-6 order-1 order-lg-2">
-              <img src="{{asset('public/assets/img/cb/boko.jpg')}}" class="img-fluid" alt="">
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{{asset('public/assets/user/img/cb/boko.jpg')}}" class="img-fluid" alt="">
             </div>
             <h4 class="title"><a href="">SITUS CANDI RATU BOKO</a></h4>
             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trade stravi</p>
           </div>
         </div>
+
+        @foreach($cagar_budaya as $data)
+          <div class="col-lg-4 col-md-6" style="min-height:300px;">
+            <div class="icon-box">
+              <!-- <div class="icon"><i class="bi bi-calendar4-week"></i></div> -->
+              <div class="col-lg-6 order-1 order-lg-2">
+                <img src="{{ $data->Foto_CB() }}" class="img-fluid" alt="">
+              </div>
+              <h4 class="title"><a href="">{{ $data->nama}}</a></h4>
+              <p class="description">{{$data->deskripsi}}</p>
+            </div>
+          </div>
+        @endforeach
+
       </div>
+
 
     </div>
   </section><!-- End Featured Services Section -->
@@ -157,68 +173,6 @@
     </div>
 
   </section><!-- End Services Section -->
-
-  <section id="peta" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>PETA CAGAR BUDAYA</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 align-items-stretch">
-          <form action="" method="post" role="form" class="php-email-form">
-            <label for="">Pencarian</label>
-            <div class="row">
-              <div class="form-group mt-3">
-                <!-- <label for="name">Saran</label> -->
-                <select class="form-control" name="kab" required>
-                  <option value="">--Pilih Kabupaten--</option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
-              <div class="form-group mt-3">
-                <!-- <label for="name">Saran</label> -->
-                <select class="form-control" name="kec" required>
-                  <option value="">--Pilih Kecamatan--</option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
-              <div class="form-group mt-3">
-                <!-- <label for="name">Saran</label> -->
-                <select class="form-control" name="kategori" required>
-                  <option value="">--Pilih Kategori--</option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
-              <div class="form-group mt-3">
-                <!-- <label for="name">Saran</label> -->
-                <input class="form-control" name="nama" required placeholder="Nama Objek">
-                
-              </div>
-              <div class="form-group mt-3">
-                <!-- <label for="name">Saran</label> -->
-                <input class="form-control" name="periodisasi" required placeholder="Periodisasi">
-                
-              </div>
-              
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Pesan anda telah terkirim. Terima Kasih!</div>
-              </div>
-              <div class="text-center"><button type="submit">Kirim</button></div>
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
