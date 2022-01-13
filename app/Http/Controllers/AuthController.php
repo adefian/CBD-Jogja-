@@ -40,7 +40,7 @@ class AuthController extends Controller
             }
             elseif (auth()->user()->role == 'masyarakat'){
                 alert()->success('Success', 'Selamat datang anda telah berhasil login');
-                return redirect()->route('profil_user');
+                return redirect()->route('masyarakat', $user->id);
             }
         }
 

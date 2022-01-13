@@ -39,30 +39,17 @@ Benda
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Benda
                                         </th>
+                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Kegiatan
+                                        </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Tempat
                                             Penyimpanan</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Alamat
                                             Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Pemilik</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Riwayat
-                                            Kepemilikan</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengelola
                                         </th>
-                                        <th colspan="8" style="text-align: center; vertical-align: middle;">Ciri-ciri
-                                            Benda</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto Benda
                                         </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="text-align: center; vertical-align: middle;">Panjang</th>
-                                        <th style="text-align: center; vertical-align: middle;">Lebar</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tinggi</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tebal</th>
-                                        <th style="text-align: center; vertical-align: middle;">Diameter</th>
-                                        <th style="text-align: center; vertical-align: middle;">Berat</th>
-                                        <th style="text-align: center; vertical-align: middle;">Bahan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Warna</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,19 +58,10 @@ Benda
                                     <tr style="text-align: center; vertical-align: middle;">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $data->nama }}</td>
+                                        <td>{{ $data->nama_kegiatan }}</td>
                                         <td>{{ $data->tempat_penyimpanan }}</td>
                                         <td>{{ $data->alamat }}</td>
-                                        <td>{{ $data->pemilik }}</td>
-                                        <td>{{ $data->riwayat }}</td>
                                         <td>{{ $data->pengelola }}</td>
-                                        <td>{{ $data->panjang }}</td>
-                                        <td>{{ $data->lebar }}</td>
-                                        <td>{{ $data->tinggi }}</td>
-                                        <td>{{ $data->tebal }}</td>
-                                        <td>{{ $data->diameter }}</td>
-                                        <td>{{ $data->berat }}</td>
-                                        <td>{{ $data->bahan }}</td>
-                                        <td>{{ $data->warna }}</td>
                                         <td>
                                             <img src="{{ $data->Foto_CB() }}" alt="foto benda" height="80px">
                                         </td>

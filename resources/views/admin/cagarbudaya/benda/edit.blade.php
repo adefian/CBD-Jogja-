@@ -54,6 +54,11 @@ Edit Cagar Budaya Benda
                                             name="tempat_penyimpanan" placeholder="Tempat Penyimpanan">
                                     </div>
                                     <div class="form-group">
+                                        <label>Nama Kegiatan</label>
+                                        <input type="text" class="form-control" value="{{ $data->nama_kegiatan }}"
+                                            name="nama_kegiatan" placeholder="Nama Kegiatan">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Alamat</label>
                                         <input type="text" class="form-control" value="{{ $data->alamat }}"
                                             name="alamat" placeholder="Alamat">
@@ -85,8 +90,8 @@ Edit Cagar Budaya Benda
                                     </div>
                                     <div class="form-group">
                                         <label>Riwayat Kepemilikan</label>
-                                        <textarea type="text" class="form-control"
-                                            name="riwayat" placeholder="Riwayat Kepemilikan">{{ $data->riwayat }}</textarea>
+                                        <textarea type="text" class="form-control" name="riwayat"
+                                            placeholder="Riwayat Kepemilikan">{{ $data->riwayat }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Pengelola</label>
@@ -188,21 +193,28 @@ Edit Cagar Budaya Benda
                                             <div class="form-group">
                                                 <label for="latitude">Latitude</label>
                                                 <div class="input-group">
-                                                    <input type="number" step="any" id="lat" name="latitude"
-                                                        class="form-control" value="{{ $data->latitude }}" required>
+                                                    <input type="number" step="any" name="latitude" class="form-control"
+                                                        value="{{ $data->latitude }}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="longitude">Longitude</label>
                                                 <div class="input-group">
-                                                    <input name="longitude" step="any" id="leng" type="number"
+                                                    <input name="longitude" step="any" type="number"
                                                         class="form-control" value="{{ $data->longitude }}" required>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <button type="submit" class="btn btn-success">Edit Lokasi</button>
+                                            <div class="mb-2">
+                                                <button type="submit" class="btn btn-success ml-2">Edit Lokasi</button>
+
+                                                <a href="{{ route('cagarbudaya_benda') }}">
+                                                    <button type="button" style="margin-left: 3px;"
+                                                        class="btn btn-primary" data-dismiss="modal">Kembali</button>
+                                                </a>
                                             </div>
                                         </form>
+                                        <button data-toggle="modal" data-target="#editModal" class="btn btn-warning"
+                                            title="Edit disini" style="margin-left: auto;">Penentuan Lokasi</button>
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +229,7 @@ Edit Cagar Budaya Benda
 </div>
 <!-- .animated -->
 <!-- ====================================== EDIT LOKASI ==================================== -->
-<!-- <div class="modal fade" tabindex="-1" role="dialog" id="editModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="editModal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-between">
@@ -265,7 +277,7 @@ Edit Cagar Budaya Benda
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- ====================================== END EDIT LOKASI ==================================== -->
 
 <!-- ====================== Array ================== -->
@@ -275,7 +287,7 @@ var array = [];
 @if($data)
 <script>
 //Memasukkan data tabel ke array 
-array.push(['<?php echo $data->nama ?>', '<?php echo $data->latitude ?>', '<?php echo $data->longitude ?>', 
+array.push(['<?php echo $data->nama ?>', '<?php echo $data->latitude ?>', '<?php echo $data->longitude ?>',
     '<?php echo $data->deskripsi ?>', '<?php echo $data->kecamatan ?>', '<?php echo $data->foto ?>'
 ]);
 </script>
@@ -283,31 +295,71 @@ array.push(['<?php echo $data->nama ?>', '<?php echo $data->latitude ?>', '<?php
 <!-- ====================== Array ================== -->
 
 @section('js')
+
 <!-- ================================ Maps =================================== -->
 
 <script>
 function initMap() {
-    var bounds = new google.maps.LatLngBounds();
-    var peta = new google.maps.Map(document.getElementById("map"), {
+    if (navigator.geolocation) {
+        //Mengambil Fungsi golocation
+        navigator.geolocation.getCurrentPosition(lokasi);
+    } else {
+        swal("Maaf Browser tidak Support Untuk Menambahkan lokasi map");
+    }
+
+    //Variabel Marker
+    var marker;
+
+    function taruhMarker(peta, posisiTitik) {
+
+        if (marker) {
+            // pindahkan marker
+            marker.setPosition(posisiTitik);
+        } else {
+            // buat marker baru
+            marker = new google.maps.Marker({
+                position: posisiTitik,
+                map: peta,
+                icon: 'https://img.icons8.com/plasticine/40/000000/marker.png',
+            });
+        }
+
+    }
+
+    //Buat Peta
+
+    var peta2 = new google.maps.Map(document.getElementById("map"), {
         center: {
             lat: -7.899160514864099,
             lng: 110.4546618082422
         },
         zoom: 9
     });
+
+    var peta = new google.maps.Map(document.getElementById("mapInput"), {
+        center: {
+            lat: -7.899160514864099,
+            lng: 110.4546618082422
+        },
+        zoom: 9
+    });
+
+    // ============================== LatLngBounds ================================
+
+    var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow(),
-        marker, i;
+        markerr, i;
     for (var i = 0; i < array.length; i++) {
 
-        var position = new google.maps.LatLng(array[i][1], array[i][2]);
-        bounds.extend(position);
-        var marker = new google.maps.Marker({
-            position: position,
-            map: peta,
+        var positionn = new google.maps.LatLng(array[i][1], array[i][2]);
+        bounds.extend(positionn);
+        var markerr = new google.maps.Marker({
+            position: positionn,
+            map: peta2,
             icon: 'https://img.icons8.com/plasticine/40/000000/marker.png',
             title: array[i][0]
         });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        google.maps.event.addListener(markerr, 'click', (function(markerr, i) {
             return function() {
                 var infoWindowContent =
                     '<h6>' + array[i][0] + '</h6>' +
@@ -316,17 +368,51 @@ function initMap() {
                     'Kecamatan : ' + array[i][4] + '<br/>' +
                     'Keterangan : ' + array[i][3] + '<br/>';
                 infoWindow.setContent(infoWindowContent);
-                infoWindow.open(peta, marker);
+                infoWindow.open(peta2, markerr);
             }
-        })(marker, i));
+        })(markerr, i));
     }
 
+    //Fungsi untuk geolocation
+    function lokasi(position) {
+        //Mengirim data koordinat ke form input
+        document.getElementById("lat").value = position.coords.latitude;
+        document.getElementById("leng").value = position.coords.longitude;
+        //Current Location
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        var latlong = new google.maps.LatLng(lat, long);
+
+        //Current Marker 
+        var currentMarker = new google.maps.Marker({
+            position: latlong,
+            icon: 'https://img.icons8.com/plasticine/40/000000/user-location.png',
+            map: peta,
+            title: "Anda Disini"
+        });
+        //Membuat Marker Map dengan Klik
+        var latLng = new google.maps.LatLng(-8.408698, 114.2339090);
+
+        var addMarkerClick = google.maps.event.addListener(peta, 'click', function(event) {
+
+
+            taruhMarker(this, event.latLng);
+
+            //Kirim data ke form input dari klik
+            document.getElementById("lat").value = event.latLng.lat();
+            document.getElementById("leng").value = event.latLng.lng();
+
+        });
+
+    }
 }
 </script>
 <!-- ======================== End Maps ====================== -->
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv-h2II7DbFQkpL9pDxNRq3GWXqS5Epts&callback=initMap" type="text/javascript"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv-h2II7DbFQkpL9pDxNRq3GWXqS5Epts&callback=initMap"
+    type="text/javascript"></script>
 @endsection
 
 @endsection

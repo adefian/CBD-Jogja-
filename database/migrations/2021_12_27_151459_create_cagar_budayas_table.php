@@ -16,6 +16,7 @@ class CreateCagarBudayasTable extends Migration
         Schema::create('cagar_budaya', function (Blueprint $table) {
             $table->id();
             $table->string('pendaftar')->nullable();
+            $table->string('nama_kegiatan')->nullable();
             $table->string('kategori')->nullable();
             $table->string('periodesasi')->nullable();
             $table->integer('peringkat_id')->nullable();

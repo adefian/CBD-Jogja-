@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Pengajuan;
+use App\CagarBudaya;
 use Alert;
 
 class AdminController extends Controller
@@ -15,7 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $pengajuan = Pengajuan::all();
+        $cagar_budaya = CagarBudaya::all();
+        return view('admin.dashboard', compact('pengajuan', 'cagar_budaya'));
     }
 
     /**

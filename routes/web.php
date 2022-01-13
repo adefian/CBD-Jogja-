@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use RealRashid\SweetAlert\Facades\Alert;
-use App\CagarBudaya;
 
+use App\CagarBudaya;
+use App\Pengajuan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +18,39 @@ use App\CagarBudaya;
 */
 
 Route::get('/', function () {
-    $cagar_budaya = CagarBudaya::orderBy('id', 'desc')->get();
-    return view('user_umum.home', compact('cagar_budaya'));
+    $total_cagar_budaya = CagarBudaya::count();
+    $cagar_budaya = CagarBudaya::orderBy('id', 'desc')->take(9)->get();
+    return view('user_umum.home', compact('cagar_budaya', 'total_cagar_budaya'));
 })->name('home');
+
+Route::get('/cagarbudaya/{cagarbudaya}', function ($cagarbudaya) {
+    $kategori = $cagarbudaya;
+    $cagar_budaya = CagarBudaya::where('kategori', $cagarbudaya)->orderBy('id', 'desc')->get();
+    return view('user_umum.cagarbudaya', compact('cagar_budaya', 'kategori'));
+})->name('cagarbudaya');
 
 Route::get('/peta', function () {
     $cagar_budaya = CagarBudaya::orderBy('id', 'desc')->get();
     return view('user_umum.peta', compact('cagar_budaya'));
 })->name('peta');
+
+Route::get('/rekap', function () {
+    $rekap = CagarBudaya::orderBy('id', 'desc')->get();
+    
+    $data = Pengajuan::select([
+        DB::raw('count(id) as `count`'), 
+        DB::raw('MONTH(updated_at) as month')
+    ])->groupBy('month')
+    ->get();
+
+    $bulan = [
+        1 => 'Januari',
+        2 => 'Februari',
+        3 => 'Maret',
+    ];
+
+    return view('user_umum.rekap', compact('rekap', 'data', 'bulan'));
+})->name('rekap');
 
 Auth::routes();
 
@@ -111,8 +137,15 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
 
 //USER UMUM
 Route::group(['middleware' => ['auth', 'masyarakat']],function(){
-    Route::get('/pengajuan_user', 'UsermasyarakatController@pengajuan')->name('pengajuan_user');
-    Route::get('/profil_user', 'UsermasyarakatController@profil')->name('profil_user');
+    Route::get('/dashboard-masyarakat/{id}', 'UsermasyarakatController@dashboard')->name('masyarakat');
+    Route::get('/pengajuan_user/{id}', 'UsermasyarakatController@pengajuan')->name('pengajuan_user');
+    Route::post('/pengajuan_user/{id}/create', 'UsermasyarakatController@pengajuan_create')->name('pengajuan_user.create');
+    Route::get('/masyarakat/{id}/profil', 'UsermasyarakatController@profil')->name('profil_user');
+    Route::get('/masyarakat/{id}/detailprofil', 'UsermasyarakatController@detail_profil')->name('profil_user.detail');
+    Route::post('/masyarakat/{id}/update', 'UsermasyarakatController@profil_update')->name('profil_user.update');
+    Route::get('/masyarakat/{id}/gantipassword', 'UsermasyarakatController@profil_ganti_password')->name('profil_user.gantipassword');
+    Route::post('/masyarakat/{id}/updatepassword', 'UsermasyarakatController@profil_update_password')->name('profil_user.updatepassword');
+
 });
 
 

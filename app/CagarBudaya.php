@@ -10,6 +10,7 @@ class CagarBudaya extends Model
 
     protected $fillable = [
             'pendaftar',
+            'nama_kegiatan',
             'kategori',
             'periodesasi',
             'peringkat_id',

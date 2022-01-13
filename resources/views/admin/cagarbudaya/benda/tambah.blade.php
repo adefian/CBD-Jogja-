@@ -20,7 +20,11 @@
                     <div class="form-group">
                         <label>Tempat Penyimpanan</label>
                         <input type="text" class="form-control" id="tempat_penyimpanan" name="tempat_penyimpanan"
-                            placeholder="Tempat Penyimpanan">
+                        placeholder="Tempat Penyimpanan">
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Nama Kegiatan" required>
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
