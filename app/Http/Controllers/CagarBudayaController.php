@@ -24,41 +24,17 @@ class CagarBudayaController extends Controller
 
     public function create_benda(Request $request)
     {
-        $data = [
-            'kategori' => 'benda',
-            'nama' => $request->nama,
-            'tempat_penyimpanan' => $request->tempat_penyimpanan,
-            'alamat' => $request->alamat,
-            'kabupaten' => $request->kabupaten,
-            'kecamatan' => $request->kecamatan,
-            'kelurahan' => $request->kelurahan,
-            'kodepos' => $request->kodepos,
-            'pemilik' => $request->pemilik,
-            'riwayat' => $request->riwayat,
-            'pengelola' => $request->pengelola,
-            'panjang' => $request->panjang,
-            'lebar' => $request->lebar,
-            'tinggi' => $request->tinggi,
-            'tebal' => $request->tebal,
-            'diameter' => $request->diameter,
-            'berat' => $request->berat,
-            'bahan' => $request->bahan,
-            'warna' => $request->warna,
-            'periodesasi' => $request->periodesasi,
-            'kondisi' => $request->kondisi,
-            'sejarah' => $request->sejarah,
-            'deskripsi' => $request->deskripsi
-            
-        ];
+        $data[] = $request->all();
 
         if ($file = $request->foto){
 
             $nama_file = "Foto_CBBenda_".time(). ".jpeg";
             $file->move(public_path() . '/Images/cagar_budaya/', $nama_file);  
-            $data['foto'] = $nama_file;
+            $data[0]['foto'] = $nama_file;
+            $data[0]['kategori'] = 'benda';
         }
 
-        CagarBudaya::create($data);
+        CagarBudaya::create($data[0]);
 
         toast('Berhasil Menambahkan Data Cagar Budaya Benda', 'success');
         return back();
@@ -75,41 +51,16 @@ class CagarBudayaController extends Controller
     {
         $cb_benda = CagarBudaya::find($id);
 
-        $data = [
-            'kategori' => 'benda',
-            'nama' => $request->nama,
-            'tempat_penyimpanan' => $request->tempat_penyimpanan,
-            'alamat' => $request->alamat,
-            'kabupaten' => $request->kabupaten,
-            'kecamatan' => $request->kecamatan,
-            'kelurahan' => $request->kelurahan,
-            'kodepos' => $request->kodepos,
-            'pemilik' => $request->pemilik,
-            'riwayat' => $request->riwayat,
-            'pengelola' => $request->pengelola,
-            'panjang' => $request->panjang,
-            'lebar' => $request->lebar,
-            'tinggi' => $request->tinggi,
-            'tebal' => $request->tebal,
-            'diameter' => $request->diameter,
-            'berat' => $request->berat,
-            'bahan' => $request->bahan,
-            'warna' => $request->warna,
-            'periodesasi' => $request->periodesasi,
-            'kondisi' => $request->kondisi,
-            'sejarah' => $request->sejarah,
-            'deskripsi' => $request->deskripsi
-            
-        ];
+        $data[] = $request->all();
 
         if ($file = $request->foto){
 
             $nama_file = "Foto_CBBenda_".time(). ".jpeg";
             $file->move(public_path() . '/Images/cagar_budaya/', $nama_file);  
-            $data['foto'] = $nama_file;
+            $data[0]['foto'] = $nama_file;
         }
 
-        $cb_benda->update($data);
+        $cb_benda->update($data[0]);
 
         toast('Berhasil Mengedit Data Cagar Budaya Benda', 'success');
         return redirect()->route('cagarbudaya_benda'); 

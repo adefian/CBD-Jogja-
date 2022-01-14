@@ -12,7 +12,7 @@ Pengajuan
         <!--  Traffic  -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card" style="height: 26rem;">
+                <div class="card" >
                     <div class="card-header">
                         <h4>Pengajuan</h4>
                     </div>

@@ -9,15 +9,15 @@
 
       <nav id="navbar" class="navbar" style="margin-left: 7%">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">HOME</a></li>
+          <li><a class="nav-link scrollto active" href="{{ route('home') }}">HOME</a></li>
           <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
           <li class="dropdown"><a href="#"><span>CAGAR BUDAYA</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Benda Cagar Budaya</a></li>
-              <li><a href="#">Bangunan Cagar Budaya</a></li>
-              <li><a href="#">Struktur Cagar Budaya</a></li>
-              <li><a href="#">Situs Cagar Budaya</a></li>
-              <li><a href="#">Kawasan Cagar Budaya</a></li>
+              <li><a href="{{ route('cagarbudaya', 'benda') }}">Benda Cagar Budaya</a></li>
+              <li><a href="{{ route('cagarbudaya', 'bangunan') }}">Bangunan Cagar Budaya</a></li>
+              <li><a href="{{ route('cagarbudaya', 'struktur') }}">Struktur Cagar Budaya</a></li>
+              <li><a href="{{ route('cagarbudaya', 'situs') }}">Situs Cagar Budaya</a></li>
+              <li><a href="{{ route('cagarbudaya', 'kawasan') }}">Kawasan Cagar Budaya</a></li>
             </ul>
             </li>
               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -29,7 +29,7 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> -->
-              <li><a class="nav-link scrollto" href="#">REKAP</a></li>
+              <li><a class="nav-link scrollto" href="{{ route('rekap') }}">REKAP</a></li>
               <li class="dropdown"><a href="#peta"><span>PETA</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{ route('peta') }}">Peta Cagar Budaya</a></li>
@@ -41,7 +41,6 @@
             </li>
           <!-- <li><a class="nav-link scrollto" href="#">PENCARIAN</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">KONTAK</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('pengajuan_user') }}">PENGAJUAN</a></li>
           <li><a class="nav-link scrollto" href="{{ route('login') }}">LOGIN</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a> -->
         </ul>

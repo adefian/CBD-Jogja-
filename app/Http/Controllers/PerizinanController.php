@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pengajuan;
 
 class PerizinanController extends Controller
 {
@@ -13,7 +14,9 @@ class PerizinanController extends Controller
      */
     public function index()
     {
-        return view('admin.perizinan.index');
+        $data = Pengajuan::orderBy('id', 'asc')->get();
+        
+        return view('admin.perizinan.index', compact('data'));
     }
 
     /**

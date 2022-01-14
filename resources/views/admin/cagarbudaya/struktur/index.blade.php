@@ -39,43 +39,19 @@ Struktur
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Objek
                                         </th>
+                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Kegiatan
+                                        </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Alamat
                                             Lengkap</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Titik
                                             Koordinat X</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Titik
                                             Koordinat Y</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Pemilik</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Riwayat
-                                            Kepemilikan</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengelola
-                                        </th>
-                                        <th colspan="12" style="text-align: center; vertical-align: middle;">Ciri-ciri
-                                            Struktur</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Kondisi</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Periodisasi
-                                        </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Sejarah
-                                        </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Deskripsi
                                         </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto
                                             Struktur</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="text-align: center; vertical-align: middle;">Panjang</th>
-                                        <th style="text-align: center; vertical-align: middle;">Lebar</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tinggi</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tebal</th>
-                                        <th style="text-align: center; vertical-align: middle;">Diameter</th>
-                                        <th style="text-align: center; vertical-align: middle;">Luas Lahan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Batas Utara</th>
-                                        <th style="text-align: center; vertical-align: middle;">Batas Selatan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Batas Timur</th>
-                                        <th style="text-align: center; vertical-align: middle;">Batas Barat</th>
-                                        <th style="text-align: center; vertical-align: middle;">Bahan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Ketinggian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,27 +60,10 @@ Struktur
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $data->nama }}</td>
+                                        <td>{{ $data->nama_kegiatan }}</td>
                                         <td>{{ $data->alamat }}</td>
                                         <td>{{ $data->latitude }}</td>
                                         <td>{{ $data->longitude }}</td>
-                                        <td>{{ $data->pemilik }}</td>
-                                        <td>{{ $data->riwayat }}</td>
-                                        <td>{{ $data->pengelola }}</td>
-                                        <td>{{ $data->panjang }}</td>
-                                        <td>{{ $data->lebar }}</td>
-                                        <td>{{ $data->tinggi }}</td>
-                                        <td>{{ $data->tebal }}</td>
-                                        <td>{{ $data->diameter }}</td>
-                                        <td>{{ $data->luas_lahan }}</td>
-                                        <td>{{ $data->utara }}</td>
-                                        <td>{{ $data->selatan }}</td>
-                                        <td>{{ $data->timur }}</td>
-                                        <td>{{ $data->barat }}</td>
-                                        <td>{{ $data->bahan }}</td>
-                                        <td>{{ $data->ketinggian }}</td>
-                                        <td>{{ $data->kondisi }}</td>
-                                        <td>{{ $data->periodesasi }}</td>
-                                        <td>{{ $data->sejarah }}</td>
                                         <td>{{ $data->deskripsi }}</td>
                                         <td>
                                             <img src="{{ $data->Foto_CB() }}" alt="foto struktur" height="80px">

@@ -21,6 +21,10 @@
                             placeholder="Nama Struktur">
                     </div>
                     <div class="form-group">
+                        <label>Nama Kegiatan</label>
+                        <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Nama Kegiatan" required>
+                    </div>
+                    <div class="form-group">
                         <label>Alamat</label>
                         <input type="text" required class="form-control" id="alamat" name="alamat" placeholder="Alamat">
                     </div>
