@@ -66,6 +66,8 @@ Route::get('/regencies', 'DaerahController@regencies_select')->name('regencies.s
 Route::get('/districts', 'DaerahController@districts_select')->name('districts.select');
 Route::get('/villages', 'DaerahController@villages_select')->name('villages.select');
 
+Route::post('/pengajuan/setuju/{id}', 'instansiController@pengajuan_setuju')->name('pengajuan.setuju');
+Route::post('/pengajuan/tolak/{id}', 'instansiController@pengajuan_tolak')->name('pengajuan.tolak');
 //INSTANSI
 Route::group(['middleware' => ['auth', 'instansi']],function(){
     Route::get('/instansi_dashboard', 'instansiController@index')->name('instansi_dashboard');

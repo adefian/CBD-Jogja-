@@ -46,7 +46,7 @@
     });
 </script>
 
-
+@yield('js')
 
 
 <!--Local Stuff-->

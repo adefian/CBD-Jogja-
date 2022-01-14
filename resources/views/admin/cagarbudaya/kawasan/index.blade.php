@@ -43,7 +43,7 @@ Kawasan
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Kondisi</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Sejarah </th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Deskripsi</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto Struktur</th>
+                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto Kawasan</th>
                                         <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
                                     </tr>
                                 </thead>

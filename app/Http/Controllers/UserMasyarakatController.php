@@ -47,7 +47,7 @@ class UserMasyarakatController extends Controller
 
         $fileName = time().'.'.auth()->user()->name.'.'.$request->berkas->extension();  
         
-        $request->berkas->move(public_path('/assets/user/img/berkas/'), $fileName);
+        $request->berkas->move(public_path('/assets/user/berkas/'), $fileName);
         // if ($file = $request->foto){
 
         //     $nama_file = "Berkas_".time(). ".jpeg";

@@ -23,4 +23,13 @@ class Pengajuan extends Model
     {
         return $this->belongsTo('App\User', 'id_users');
     }
+
+    public function Berkas()
+    {
+        if(!$this->berkas){
+            return asset('public/assets/user/img/berkas/default.png');
+        }else{
+            return asset('public/assets/user/img/berkas/'.$this->berkas);
+        }
+    }
 }
