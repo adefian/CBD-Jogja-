@@ -41,12 +41,12 @@
                     </div>
                     <div class="form-group">
                         <label>Koordinat Google X</label>
-                        <input type="number" class="form-control" id="latitude" name="latitude"
+                        <input type="text" class="form-control" id="latitude" name="latitude"
                             placeholder="Koordinat X">
                     </div>
                     <div class="form-group">
                         <label>Koordinat Google y</label>
-                        <input type="number" class="form-control" id="longitude" name="longitude"
+                        <input type="text" class="form-control" id="longitude" name="longitude"
                             placeholder="Koordinat Y">
                     </div>
                     <div class="form-group">

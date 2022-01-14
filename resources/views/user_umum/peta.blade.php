@@ -113,7 +113,7 @@ function initMap() {
             return function() {
                 var infoWindowContent =
                     '<h6>' + array[i][0] + '</h6>' +
-                    '<img height="130" style="margin:0 auto; display:block;" src="../public/Images/cagar_budaya/' +
+                    '<img height="130" style="margin:0 auto; display:block;" src="public/Images/cagar_budaya/' +
                     array[i][5] + '"/><br/>' +
                     'Kecamatan : ' + array[i][4] + '<br/>' +
                     'Keterangan : ' + array[i][3] + '<br/>';
