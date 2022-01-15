@@ -62,19 +62,40 @@ Pengajuan
                                             @endif
                                         </td>
                                         <td>
-                                        
-                                        <a class="mr-2" href="{{ route('pengajuan.proses', $data->id) }}">
-                                            <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
-                                        </a>
-                                        <a class="mr-2" href="#" data-toggle="modal" onclick="setujuData({{$data->id}})"
-                                                data-target="#setujuModal">
-                                            <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
-                                        </a>
+                                        @if($data->status == null)
+                                            <a class="mr-2" href="{{ route('pengajuan.proses', $data->id) }}">
+                                                <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
+                                            </a>
+                                        @else
+                                            <a class="mr-2" href="#">
+                                                <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
+                                            </a>
+                                        @endif
 
-                                        <a href="#" data-toggle="modal" onclick="tolakData({{$data->id}})"
-                                                data-target="#tolakModal">
-                                        <button class="btn btn-danger btn-sm fa fa-times" title="Ditolak"></button>
-                                        </a>
+                                        @if($data->status == 1)
+                                            <a class="mr-2" href="#" data-toggle="modal" onclick="setujuData({{$data->id}})"
+                                                    data-target="#setujuModal">
+                                                <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
+                                            </a>
+                                        @else
+                                            <a class="mr-2" href="#"
+                                                    data-target="#setujuModal">
+                                                <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
+                                            </a>
+                                        @endif
+
+                                        @if($data->status == 1)
+                                            <a href="#" data-toggle="modal" onclick="tolakData({{$data->id}})"
+                                                    data-target="#tolakModal">
+                                            <button class="btn btn-danger btn-sm fa fa-times" title="Ditolak"></button>
+                                            </a>
+                                        @else
+                                            <a href="#"
+                                                    data-target="#tolakModal">
+                                            <button class="btn btn-danger btn-sm fa fa-times" title="Ditolak"></button>
+                                            </a>
+                                        @endif
+
                                         </td>
                                     </tr>
                                     @endforeach
