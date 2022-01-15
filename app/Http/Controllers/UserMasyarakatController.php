@@ -29,12 +29,16 @@ class UserMasyarakatController extends Controller
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
-        $pengajuan = Pengajuan::where('id_users', $id)->orderBy('id', 'ASC')->get();
+        $pengajuan = Pengajuan::where('id_users', $id)->orderBy('id', 'DESC')->get();
         return view('user_umum.pengajuan.index', compact('user', 'pengajuan', 'masyarakat'));
     }
 
     public function pengajuan_create($id, Request $request)
     {
+        $this->validate($request, [
+            'berkas'=> 'required|file|mimes:pdf|max:2048',
+        ]);
+
         $masyarakat = Masyarakat::where('id_users', auth()->user()->id)
                         ->whereNull('tempat_lahir')->first();
 
@@ -57,7 +61,7 @@ class UserMasyarakatController extends Controller
 
         $data['berkas'] = $fileName;
         $data['id_users'] = $id;
-        $data['status'] = 1;
+        $data['status'] = null;
 
         Pengajuan::create($data);
 
