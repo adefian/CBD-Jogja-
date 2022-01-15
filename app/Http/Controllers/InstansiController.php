@@ -18,10 +18,23 @@ class InstansiController extends Controller
         return view('instansi.pengajuan.index', compact('pengajuan'));
     }
 
+    public function pengajuan_proses($id)
+    {
+        $pengajuan = Pengajuan::where('id', $id)->first();
+
+        $data = [
+            'status' => 1
+        ];
+
+        $pengajuan->update($data);
+        alert()->success('Success', 'Selamat Berhasil Merubah Pengajuan ');
+        return back();
+    }
+
     public function pengajuan_setuju($id)
     {
-        $pengajuan = Pengajuan::where('id_users', $id)->first();
-        
+        $pengajuan = Pengajuan::where('id', $id)->first();
+
         $data = [
             'status' => 2
         ];
@@ -30,9 +43,9 @@ class InstansiController extends Controller
         alert()->success('Success', 'Selamat Berhasil Menyetujui Pengajuan ');
         return back();
     }
-    public function pengajuan_ditolak($id)
+    public function pengajuan_tolak($id)
     {
-        $pengajuan = Pengajuan::where('id_users', $id)->first();
+        $pengajuan = Pengajuan::where('id', $id)->first();
         
         $data = [
             'status' => 3
@@ -40,7 +53,7 @@ class InstansiController extends Controller
 
         $pengajuan->update($data);
 
-        alert()->success('Success', 'Selamat Berhasil Menyetujui Ditolak ');
+        alert()->success('Success', 'Selamat Berhasil Menolak Pengajuan ');
         return back();
     }
    
