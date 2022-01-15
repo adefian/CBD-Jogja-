@@ -32,8 +32,6 @@
         <!-- Footer -->
         @include('instansi.layout.footer')
 
-        @yield('js')
-
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @include('sweetalert::alert')
     <!-- End Footer -->

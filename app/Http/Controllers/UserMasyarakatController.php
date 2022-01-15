@@ -29,7 +29,7 @@ class UserMasyarakatController extends Controller
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
-        $pengajuan = Pengajuan::where('id_users', $id)->orderBy('id', 'ASC')->get();
+        $pengajuan = Pengajuan::where('id_users', $id)->orderBy('id', 'DESC')->get();
         return view('user_umum.pengajuan.index', compact('user', 'pengajuan', 'masyarakat'));
     }
 
@@ -57,7 +57,7 @@ class UserMasyarakatController extends Controller
 
         $data['berkas'] = $fileName;
         $data['id_users'] = $id;
-        $data['status'] = 1;
+        $data['status'] = null;
 
         Pengajuan::create($data);
 

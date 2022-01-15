@@ -45,7 +45,9 @@ Pengajuan
                                             </a>
                                         </td>
                                         <td>
-                                            @if($data->status == 1)
+                                            @if($data->status == null)
+                                            
+                                            @elseif($data->status == 1)
                                             <div class="alert alert-primary" role="alert">
                                                 Diproses
                                             </div>
@@ -61,6 +63,9 @@ Pengajuan
                                         </td>
                                         <td>
                                         
+                                        <a class="mr-2" href="{{ route('pengajuan.proses', $data->id) }}">
+                                            <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
+                                        </a>
                                         <a class="mr-2" href="#" data-toggle="modal" onclick="setujuData({{$data->id}})"
                                                 data-target="#setujuModal">
                                             <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
@@ -95,6 +100,8 @@ Pengajuan
         <!-- Modal content-->
         <form action="" id="setujuForm" method="post">
 
+            {{ csrf_field() }}
+            {{ method_field('POST') }}
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Setujui Pengajuan ini?</h5>
@@ -103,11 +110,9 @@ Pengajuan
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{ csrf_field() }}  
-                    {{ method_field('POST') }}
                     <p>Apakah anda yakin ingin Menyetujui Pengajuan ini ?</p>
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-success float-right mr-2">Setuju</button>
+                    <button type="submit" name="" class="btn btn-success float-right mr-2"  onclick="formSubmit()">Setuju</button>
                 </div>
             </div>
         </form>
@@ -119,6 +124,8 @@ Pengajuan
         <!-- Modal content-->
         <form action="" id="tolakForm" method="post">
 
+            {{ csrf_field() }}
+            {{ method_field('POST') }}
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Tolak Pengajuan ini?</h5>
@@ -127,16 +134,15 @@ Pengajuan
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{ csrf_field() }}
-                    {{ method_field('POST') }}
                     <p>Apakah anda yakin ingin Menolak Pengajuan ini ?</p>
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2">Menolak</button>
+                    <button type="submit" name="" class="btn btn-danger float-right mr-2" onclick="formSubmit()">Menolak</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 @endsection('content')
 
 @section('js')
