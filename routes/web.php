@@ -70,6 +70,9 @@ Route::get('/villages', 'DaerahController@villages_select')->name('villages.sele
 Route::group(['middleware' => ['auth', 'instansi']],function(){
     Route::get('/instansi_dashboard', 'instansiController@index')->name('instansi_dashboard');
     Route::get('/pengajuan', 'instansiController@pengajuan')->name('pengajuan');
+    Route::get('/pengajuan/proses/{id}', 'instansiController@pengajuan_proses')->name('pengajuan.proses');
+    Route::post('/pengajuan/setuju/{id}', 'instansiController@pengajuan_setuju')->name('pengajuan.setuju');
+    Route::post('/pengajuan/tolak/{id}', 'instansiController@pengajuan_tolak')->name('pengajuan.tolak');
 });
 
 //ADMIN
@@ -147,6 +150,5 @@ Route::group(['middleware' => ['auth', 'masyarakat']],function(){
     Route::post('/masyarakat/{id}/updatepassword', 'UsermasyarakatController@profil_update_password')->name('profil_user.updatepassword');
 
 });
-
 
 

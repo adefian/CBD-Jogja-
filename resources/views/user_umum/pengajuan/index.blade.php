@@ -52,10 +52,16 @@ Pengajuan
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label">Berkas </label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="" name="berkas" required placeholder="">
+                                    <input type="file" class="form-control  @error('berkas') is-invalid @enderror" id="berkas" name="berkas" required autocomplete="berkas" autofocus>
+                                    <small class="form-text text-danger" id="fileHelp">file berupa .pdf, max file 2 Mb</small>
+                                    
+                                    @error('berkas')
+                                        <span class="alert alert-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
-
                             <button type="submit" class="btn btn-success">Simpan</button>
                             <button type="button" style="margin-left: 3px;" class="btn btn-danger"
                                 data-dismiss="modal">Batal</button>

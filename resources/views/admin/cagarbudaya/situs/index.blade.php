@@ -42,11 +42,7 @@ Situs
                                         </th>
                                         <th style="text-align: center; vertical-align: middle;">Alamat
                                             Lengkap</th>
-                                        <th style="text-align: center; vertical-align: middle;">Titik
-                                            Koordinat X</th>
-                                        <th style="text-align: center; vertical-align: middle;">Titik
-                                            Koordinat Y</th>
-                                        <th style="text-align: center; vertical-align: middle;">Deskripsi
+                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Deskripsi
                                         </th>
                                         <th style="text-align: center; vertical-align: middle;">Foto
                                             Struktur</th>
@@ -60,8 +56,6 @@ Situs
                                         <td>{{ $data->nama }}</td>
                                         <td>{{ $data->nama_kegiatan }}</td>
                                         <td>{{ $data->alamat }}</td>
-                                        <td>{{ $data->latitude }}</td>
-                                        <td>{{ $data->longitude }}</td>
                                         <td>{{ $data->deskripsi }}</td>
                                         <td>
                                             <img src="{{ $data->Foto_CB() }}" alt="foto situs" height="80px">
