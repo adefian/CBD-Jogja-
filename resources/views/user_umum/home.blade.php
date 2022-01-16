@@ -331,18 +331,17 @@
                 </div>
 
                 <div class="col-lg-6 d-flex align-items-stretch">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="{{ route('saran.create') }}" method="post" role="form" class="info">
+                        {{csrf_field()}}
+                        
                         <div class="row">
                             <div class="form-group mt-3">
                                 <label for="name">Saran</label>
-                                <textarea class="form-control" name="message" rows="4" required></textarea>
+                                <textarea class="form-control" name="isi" rows="4" required></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Pesan anda telah terkirim. Terima Kasih!</div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-success" type="submit">Kirim</button>
                             </div>
-                            <div class="text-center"><button type="submit">Kirim</button></div>
                     </form>
                 </div>
 

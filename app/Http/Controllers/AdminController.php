@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pengajuan;
 use App\CagarBudaya;
+use App\Saran;
 use Alert;
 
 class AdminController extends Controller
@@ -19,6 +20,13 @@ class AdminController extends Controller
         $pengajuan = Pengajuan::all();
         $cagar_budaya = CagarBudaya::all();
         return view('admin.dashboard', compact('pengajuan', 'cagar_budaya'));
+    }
+
+    public function saran()
+    {
+        $data = Saran::orderBy('id', 'DESC')->get();
+
+        return view('admin.saran', compact('data'));
     }
 
     /**

@@ -28,21 +28,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Tim Pelaksana</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li> -->
-                    </ul>
+                <li class="{{(request()->is('timpelaksana')) ? 'active' : ''}}">
+                    <a href="{{ route('timpelaksana.index')}}"> <i class="menu-icon fa fa-users"> </i>Tim Pelaksana</a>
                 </li>
                 <li class="{{(request()->is('kegiatan')) ? 'active' : ''}}">
-                    <a href="{{ route('kegiatan')}}"> <i class="menu-icon fa fa-male"> </i>Kegiatan</a>
+                    <a href="{{ route('kegiatan.index')}}"> <i class="menu-icon fa fa-male"> </i>Kegiatan</a>
                 </li>
                 <li class="{{(request()->is('wilayah')) ? 'active' : ''}}">
                     <a href="{{ route('wilayah')}}"> <i class="menu-icon fa fa-map"> </i>Wilayah</a>
                 </li>
                 <li class="{{(request()->is('perizinan')) ? 'active' : ''}}">
                     <a href="{{ route('perizinan')}}"> <i class="menu-icon fa fa-file-text"> </i>Perizinan</a>
+                </li>
+                <li class="{{(request()->is('saran')) ? 'active' : ''}}">
+                    <a href="{{ route('saran.index')}}"> <i class="menu-icon fa fa-file-text"> </i>Saran</a>
                 </li>
 
 

@@ -11,7 +11,7 @@ Kegiatan
             <div class="col-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1 class="mb-0 font-weight-bold text-gray-800">Kegiatan</h1>
+                        <h1 class="mb-0 font-weight-bold text-gray-800">Tim Pelaksana</h1>
                     </div>
                 </div>
             </div>
@@ -36,10 +36,12 @@ Kegiatan
                                 <thead class="thead-light">
                                     <tr>
                                         <th style="text-align: center; vertical-align: middle;">No</th>
-                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tanggal Pelaksanaan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Tempat Pelaksanaan</th>
-                                        <th style="text-align: center; vertical-align: middle;">Jumlah Pelaksana</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama</th>
+                                        <th style="text-align: center; vertical-align: middle;">Jabatan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Alamat</th>
+                                        <th style="text-align: center; vertical-align: middle;">Tanggal Lahir</th>
+                                        <th style="text-align: center; vertical-align: middle;">Jenis Kelamin</th>
+                                        <th style="text-align: center; vertical-align: middle;">Telepon</th>
                                         <th style="text-align: center; vertical-align: middle;">Keterangan</th>
                                         <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                         <th style="display:none;">id</th>
@@ -50,13 +52,15 @@ Kegiatan
                                     @foreach($data as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $data->nama_kegiatan }}</td>
-                                        <td>{{ $data->tanggal }}</td>
-                                        <td>{{ $data->tempat }}</td>
-                                        <td>{{ $data->jumlah_pelaksana }}</td>
+                                        <td>{{ $data->nama }}</td>
+                                        <td>{{ $data->jabatan }}</td>
+                                        <td>{{ $data->alamat }}</td>
+                                        <td>{{ $data->tanggal_lahir }}</td>
+                                        <td>{{ $data->jenis_kelamin }}</td>
+                                        <td>{{ $data->telepon }}</td>
                                         <td>{{ $data->keterangan }}</td>
                                         <td>
-                                            <a href="{{ route('kegiatan.edit', $data->id) }}">
+                                            <a href="{{ route('timpelaksana.edit', $data->id) }}">
                                                 <button class="btn btn-warning btn-sm fa fa-edit edit"
                                                     title="Edit"></button>
                                             </a>
@@ -86,7 +90,7 @@ Kegiatan
 </div>
 
 <!-- Modal -->
-@include('admin.kegiatan.tambah')
+@include('admin.tim_pelaksana.tambah')
 
 <div id="DeleteModal" class="modal fade" role="dialog">
     <div class="modal-dialog ">
@@ -122,7 +126,7 @@ Kegiatan
 <script type="text/javascript">
 function deleteData(id) {
     var id = id;
-    var url = '{{route("kegiatan.destroy", ":id") }}';
+    var url = '{{route("timpelaksana.destroy", ":id") }}';
     url = url.replace(':id', id);
     $("#deleteForm").attr('action', url);
 }

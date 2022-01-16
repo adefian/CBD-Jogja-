@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kegiatan;
 
 class KegiatanController extends Controller
 {
@@ -13,7 +14,8 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        return view('admin.kegiatan.index');
+        $data = Kegiatan::orderBy('id', 'DESC')->get();
+        return view('admin.kegiatan.index', compact('data'));
     }
 
     /**
@@ -34,7 +36,12 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Kegiatan::create($data);
+
+        toast('Berhasil Menambahkan Data Kegiatan', 'success');
+        return back();
     }
 
     /**
@@ -56,7 +63,9 @@ class KegiatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Kegiatan::find($id);
+
+        return view('admin.kegiatan.edit', compact('data'));
     }
 
     /**
@@ -68,7 +77,12 @@ class KegiatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kegiatan = Kegiatan::find($id);
+        $data = $request->all();
+
+        $kegiatan->update($data);
+        toast('Berhasil Mengedit Data Kegiatan', 'success');
+        return back();
     }
 
     /**
@@ -79,6 +93,11 @@ class KegiatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kegiatan = kegiatan::find($id);
+
+        $kegiatan->delete();
+
+        toast('Berhasil Mengubah Data Kegiatan', 'success');
+        return back();
     }
 }

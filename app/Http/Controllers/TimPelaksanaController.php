@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TimPelaksana;
 
 class TimPelaksanaController extends Controller
 {
@@ -13,7 +14,8 @@ class TimPelaksanaController extends Controller
      */
     public function index()
     {
-        //
+        $data = TimPelaksana::orderBy('id', 'DESC')->get();
+        return view('admin.tim_pelaksana.index', compact('data'));
     }
 
     /**
@@ -34,7 +36,12 @@ class TimPelaksanaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        TimPelaksana::create($data);
+
+        toast('Berhasil Menambahkan Data Tim Pelaksana', 'success');
+        return back();
     }
 
     /**
@@ -56,7 +63,9 @@ class TimPelaksanaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = TimPelaksana::find($id);
+
+        return view('admin.tim_pelaksana.edit', compact('data'));
     }
 
     /**
@@ -68,7 +77,12 @@ class TimPelaksanaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tim_pelaksana = TimPelaksana::find($id);
+        $data = $request->all();
+
+        $tim_pelaksana->update($data);
+        toast('Berhasil Mengedit Data Tim Pelaksana', 'success');
+        return back();
     }
 
     /**
@@ -79,6 +93,11 @@ class TimPelaksanaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tim_pelaksana = TimPelaksana::find($id);
+
+        $tim_pelaksana->delete();
+
+        toast('Berhasil Mengubah Data Tim Pelaksana', 'success');
+        return back();
     }
 }

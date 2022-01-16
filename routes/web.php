@@ -61,10 +61,12 @@ Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
 // select2
-Route::get('/provinces', 'DaerahController@provinces_select')->name('provinces.select');
-Route::get('/regencies', 'DaerahController@regencies_select')->name('regencies.select');
-Route::get('/districts', 'DaerahController@districts_select')->name('districts.select');
-Route::get('/villages', 'DaerahController@villages_select')->name('villages.select');
+// Route::get('/provinces', 'DaerahController@provinces_select')->name('provinces.select');
+// Route::get('/regencies', 'DaerahController@regencies_select')->name('regencies.select');
+// Route::get('/districts', 'DaerahController@districts_select')->name('districts.select');
+// Route::get('/villages', 'DaerahController@villages_select')->name('villages.select');
+
+Route::post('/saran/create', 'UserMasyarakatController@create_saran')->name('saran.create');
 
 //INSTANSI
 Route::group(['middleware' => ['auth', 'instansi']],function(){
@@ -127,10 +129,16 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     Route::post('/cagarbudaya_kawasan/{id}/edit_lokasi', 'CagarBudayaController@editlokasi_kawasan')->name('cagarbudaya_kawasan.editlokasi');
     Route::post('/cagarbudaya_kawasan/{id}/hapus', 'CagarBudayaController@hapus_kawasan')->name('cagarbudaya_kawasan.hapus');
     // ========================= END KAWASAN =================================
+    
+    // ========================= TIM PELAKSANA =================================
+    Route::resource('/timpelaksana', 'TimPelaksanaController');
+    // ========================= END TIM PELAKSANA =================================
+    
+    // ========================= KEGIATAN =================================
+    Route::resource('/kegiatan', 'KegiatanController');
+    // ========================= END KEGIATAN =================================
 
-    Route::get('/timpelaksana', 'TimPelaksanaController@index')->name('timpelaksana');
-
-    Route::get('/kegiatan', 'KegiatanController@index')->name('kegiatan');
+    Route::get('/saran', 'AdminController@saran')->name('saran.index');
 
     Route::get('/wilayah', 'WilayahController@index')->name('wilayah');
     Route::get('/wilayah/{id}/lihat', 'WilayahController@lihat')->name('wilayah.lihat');
