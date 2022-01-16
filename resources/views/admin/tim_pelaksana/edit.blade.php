@@ -38,7 +38,7 @@ Edit Kegiatan
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <form class="needs-validation" action="{{ route('timpelaksana.update', $data->id) }}"
                                     method="POST" enctype="multipart/form-data">
                                     {{csrf_field()}}
@@ -46,41 +46,45 @@ Edit Kegiatan
 
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" required class="form-control" value="{{ $data->nama }}" id="nama" name="nama"
-                                            placeholder="Nama">
+                                        <input type="text" required class="form-control" value="{{ $data->nama }}"
+                                            id="nama" name="nama" placeholder="Nama">
                                     </div>
                                     <div class="form-group">
                                         <label>Jabatan</label>
-                                        <input type="text" required class="form-control" value="{{ $data->jabatan }}" id="jabatan" name="jabatan"
-                                            placeholder="Jabatan">
+                                        <input type="text" required class="form-control" value="{{ $data->jabatan }}"
+                                            id="jabatan" name="jabatan" placeholder="Jabatan">
                                     </div>
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <input type="text" required class="form-control" value="{{ $data->alamat }}" id="alamat" name="alamat"
-                                            placeholder="Alamat">
+                                        <input type="text" required class="form-control" value="{{ $data->alamat }}"
+                                            id="alamat" name="alamat" placeholder="Alamat">
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Lahir</label>
-                                        <input type="date" required class="form-control" value="{{ $data->tanggal_lahir }}" id="tanggal_lahir"
-                                            name="tanggal_lahir" placeholder="Tanggal Lahir">
+                                        <input type="date" required class="form-control"
+                                            value="{{ $data->tanggal_lahir }}" id="tanggal_lahir" name="tanggal_lahir"
+                                            placeholder="Tanggal Lahir">
                                     </div>
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control" name="jenis_kelamin">
                                             <option value="" selected disabled>- Jenis Kelamin -</option>
-                                            <option value="L" @if($data->jenis_kelamin == "L" ) {{'selected="selected"'}} @endif>Laki - laki</option>
-                                            <option value="P" @if($data->jenis_kelamin == "P" ) {{'selected="selected"'}} @endif>Perempuan</option>
+                                            <option value="L" @if($data->jenis_kelamin == "L" )
+                                                {{'selected="selected"'}} @endif>Laki - laki</option>
+                                            <option value="P" @if($data->jenis_kelamin == "P" )
+                                                {{'selected="selected"'}} @endif>Perempuan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Telepon</label>
-                                        <input type="number" required class="form-control" value="{{ $data->telepon }}" id="telepon" name="telepon"
-                                            placeholder="Telepon">
+                                        <input type="number" required class="form-control" value="{{ $data->telepon }}"
+                                            id="telepon" name="telepon" placeholder="Telepon">
                                     </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
                                         <textarea type="text" required class="form-control" id="keterangan"
-                                            name="keterangan" placeholder="Keterangan">{{ $data->keterangan }}</textarea>
+                                            name="keterangan"
+                                            placeholder="Keterangan">{{ $data->keterangan }}</textarea>
                                     </div>
 
                                     <a href="{{ route('timpelaksana.index') }}">
@@ -89,6 +93,37 @@ Edit Kegiatan
                                     </a>
                                     <button type="submit" class="btn btn-warning">Perbarui</button>
                                 </form>
+                            </div>
+                            <div class="col-6">
+                                <form class="needs-validation" action="{{ route('timkegiatan.update', $data->id) }}"
+                                    method="POST" enctype="multipart/form-data">
+                                    {{csrf_field()}}
+                                    {{ method_field('POST') }}
+
+                                    <div class="form-group">
+                                        <label>Ikut Serta Dalam Kegiatan</label>
+                                        <select class="form-control" name="id_kegiatan">
+                                            <option value="" selected disabled>- Kegiatan -</option>
+                                            @foreach ($kegiatan as $kegiatan)
+                                                <option value="{{ $kegiatan->id }}">{{ $kegiatan->nama_kegiatan }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <a href="{{ route('timpelaksana.index') }}">
+                                        <button type="button" style="margin-left: 3px;" class="btn btn-danger"
+                                            data-dismiss="modal">Batal</button>
+                                    </a>
+                                    <button type="submit" class="btn btn-success">Tambahkan</button>
+                                </form>
+                                <div class="mt-4">
+                                    <h4>
+                                        Kegiatan yang telah diikuti : <br><br>
+                                        @foreach($tim_kegiatan as $tim_kegiatan)
+                                            {{ $tim_kegiatan->kegiatan->nama_kegiatan }}, 
+                                        @endforeach
+                                    </h4>
+                                </div>
                             </div>
                         </div>
                     </div>

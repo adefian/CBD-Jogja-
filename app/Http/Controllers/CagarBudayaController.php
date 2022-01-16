@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CagarBudaya;
+use App\TimKegiatan;
+use App\Kegiatan;
 use App\Province;
 
 class CagarBudayaController extends Controller
@@ -19,7 +21,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::where('kategori', 'benda')->orderBy('id', 'desc')->get();
 
-        return view('admin.cagarbudaya.benda.index', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.benda.index', compact('data', 'kegiatan'));
     }
 
     public function create_benda(Request $request)
@@ -44,7 +48,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::find($id);
 
-        return view('admin.cagarbudaya.benda.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.benda.edit', compact('data', 'kegiatan'));
     }
 
     public function update_benda(Request $request, $id)
@@ -98,7 +104,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::where('kategori', 'bangunan')->orderBy('id', 'desc')->get();
 
-        return view('admin.cagarbudaya.bangunan.index', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.bangunan.index', compact('data', 'kegiatan'));
     }
 
     public function create_bangunan(Request $request)
@@ -123,7 +131,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::find($id);
 
-        return view('admin.cagarbudaya.bangunan.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.bangunan.edit', compact('data', 'kegiatan'));
     }
 
     public function update_bangunan(Request $request, $id)
@@ -177,7 +187,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::where('kategori', 'struktur')->orderBy('id', 'desc')->get();
 
-        return view('admin.cagarbudaya.struktur.index', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.struktur.index', compact('data', 'kegiatan'));
     }
 
     public function create_struktur(Request $request)
@@ -202,7 +214,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::find($id);
 
-        return view('admin.cagarbudaya.Struktur.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.Struktur.edit', compact('data', 'kegiatan'));
     }
 
     public function update_struktur(Request $request, $id)
@@ -255,7 +269,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::where('kategori', 'situs')->orderBy('id', 'desc')->get();
 
-        return view('admin.cagarbudaya.situs.index', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.situs.index', compact('data', 'kegiatan'));
     }
 
     public function create_situs(Request $request)
@@ -280,7 +296,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::find($id);
 
-        return view('admin.cagarbudaya.situs.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.situs.edit', compact('data', 'kegiatan'));
     }
 
     public function update_situs(Request $request, $id)
@@ -333,7 +351,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::where('kategori', 'kawasan')->orderBy('id', 'desc')->get();
 
-        return view('admin.cagarbudaya.kawasan.index', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.kawasan.index', compact('data', 'kegiatan'));
     }
 
     public function create_kawasan(Request $request)
@@ -358,7 +378,9 @@ class CagarBudayaController extends Controller
     {
         $data = CagarBudaya::find($id);
 
-        return view('admin.cagarbudaya.Kawasan.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        return view('admin.cagarbudaya.Kawasan.edit', compact('data', 'kegiatan'));
     }
 
     public function update_kawasan(Request $request, $id)

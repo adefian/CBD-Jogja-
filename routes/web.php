@@ -132,11 +132,13 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     
     // ========================= TIM PELAKSANA =================================
     Route::resource('/timpelaksana', 'TimPelaksanaController');
+    Route::post('/timkegiatan/{id}/update', 'TimPelaksanaController@timkegiatan_update')->name('timkegiatan.update');
     // ========================= END TIM PELAKSANA =================================
     
     // ========================= KEGIATAN =================================
     Route::resource('/kegiatan', 'KegiatanController');
     // ========================= END KEGIATAN =================================
+    
 
     Route::get('/saran', 'AdminController@saran')->name('saran.index');
 

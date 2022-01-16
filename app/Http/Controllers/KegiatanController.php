@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kegiatan;
+use App\TimKegiatan;
 
 class KegiatanController extends Controller
 {
@@ -15,6 +16,14 @@ class KegiatanController extends Controller
     public function index()
     {
         $data = Kegiatan::orderBy('id', 'DESC')->get();
+
+        foreach ($data as $key => $value) {
+            
+            $tim_kegiatan = TimKegiatan::where('id_kegiatan', $value->id)->count();
+
+            $value['jumlah_pelaksana'] = $tim_kegiatan;
+        }
+
         return view('admin.kegiatan.index', compact('data'));
     }
 

@@ -22,7 +22,12 @@
                     </div>
                     <div class="form-group">
                         <label>Nama Kegiatan</label>
-                        <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Nama Kegiatan" required>
+                        <select class="form-control" name="nama_kegiatan">
+                            <option value="" selected disabled>- Kegiatan -</option>
+                            @foreach ($kegiatan as $kegiatan)
+                                <option value="{{ $kegiatan->nama_kegiatan }}">{{ $kegiatan->nama_kegiatan }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>

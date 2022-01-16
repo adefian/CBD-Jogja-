@@ -18,7 +18,7 @@ Perizinan
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="dataTable" class="table table-hover table-bordered">
+                            <table id="dataTables" class="table table-hover table-bordered">
                             <thead class="thead-light">
                                     <tr>
                                         <th style="text-align: center; vertical-align: middle;">No</th>

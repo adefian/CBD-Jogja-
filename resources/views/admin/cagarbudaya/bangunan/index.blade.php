@@ -36,14 +36,10 @@ Bangunan
                                 <thead class="thead-light">
                                     <tr>
                                         <th style="text-align: center; vertical-align: middle;">No</th>
-                                        <th style="text-align: center; vertical-align: middle;">Nama Objek
-                                        </th>
-                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan
-                                        </th>
-                                        <th style="text-align: center; vertical-align: middle;">Alamat
-                                            Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto
-                                            Bangunan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Objek</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Alamat Lengkap</th>
+                                        <th style="text-align: center; vertical-align: middle;">Foto Bangunan</th>
                                         <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                     </tr>
                                 </thead>

@@ -55,8 +55,12 @@ Edit Cagar Budaya Benda
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Kegiatan</label>
-                                        <input type="text" class="form-control" value="{{ $data->nama_kegiatan }}"
-                                            name="nama_kegiatan" placeholder="Nama Kegiatan">
+                                        <select class="form-control" name="nama_kegiatan">
+                                            <option value="" selected disabled>- Kegiatan -</option>
+                                            @foreach ($kegiatan as $kegiatan)
+                                                <option value="{{ $kegiatan->nama_kegiatan }}"  @if($kegiatan->nama_kegiatan == $data->nama_kegiatan ) {{'selected="selected"'}} @endif>{{ $kegiatan->nama_kegiatan }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Alamat</label>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TimPelaksana;
+use App\Kegiatan;
+use App\TimKegiatan;
 
 class TimPelaksanaController extends Controller
 {
@@ -65,7 +67,11 @@ class TimPelaksanaController extends Controller
     {
         $data = TimPelaksana::find($id);
 
-        return view('admin.tim_pelaksana.edit', compact('data'));
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'ASC')->get();
+
+        $tim_kegiatan = TimKegiatan::where('id_timpelaksana', $id)->get();
+
+        return view('admin.tim_pelaksana.edit', compact('data', 'kegiatan', 'tim_kegiatan'));
     }
 
     /**
@@ -98,6 +104,27 @@ class TimPelaksanaController extends Controller
         $tim_pelaksana->delete();
 
         toast('Berhasil Mengubah Data Tim Pelaksana', 'success');
+        return back();
+    }
+
+    public function timkegiatan_update(Request $request, $id)
+    {
+        $tim_kegiatan = TimKegiatan::where('id_timpelaksana', $id)
+                    ->where('id_kegiatan', $request->id_kegiatan)->first();
+
+        
+        if($tim_kegiatan){
+            toast('Sudah Terdaftar dalam kegiatan tersebut', 'error');
+            return back();
+        }
+        $data = [
+            'id_timpelaksana' => $id,
+            'id_kegiatan' => $request->id_kegiatan
+        ];
+
+        TimKegiatan::create($data);
+
+        toast('Berhasil Menambahkan Data Tim Kegiatan', 'success');
         return back();
     }
 }

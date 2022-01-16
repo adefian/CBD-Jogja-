@@ -42,7 +42,7 @@ Situs
                                         </th>
                                         <th style="text-align: center; vertical-align: middle;">Alamat
                                             Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Deskripsi
+                                        <th style="text-align: center; vertical-align: middle;">Deskripsi
                                         </th>
                                         <th style="text-align: center; vertical-align: middle;">Foto
                                             Struktur</th>
