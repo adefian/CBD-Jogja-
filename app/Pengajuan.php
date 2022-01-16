@@ -32,4 +32,12 @@ class Pengajuan extends Model
             return asset('public/assets/user/berkas/'.$this->berkas);
         }
     }
+    public function Pesan_instansi()
+    {
+        if(!$this->berkas){
+            return asset('public/assets/user/pesan_instansi/default.png');
+        }else{
+            return asset('public/assets/user/pesan_instansi/'.$this->pesan_instansi);
+        }
+    }
 }

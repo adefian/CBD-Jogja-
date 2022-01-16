@@ -84,7 +84,9 @@ Pengajuan
                                         <th style="text-align: center; vertical-align: middle;">No</th>
                                         <th style="text-align: center; vertical-align: middle;">Tanggal Diajukan</th>
                                         <th style="text-align: center; vertical-align: middle;">Tujuan Pengajuan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Berkas Pengajuan</th>
                                         <th style="text-align: center; vertical-align: middle;">Status Pengajuan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Berkas Balasan dari Instansi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -93,6 +95,11 @@ Pengajuan
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $pengajuan->tanggal }}</td>
                                         <td>{{ $pengajuan->pesan }}</td>
+                                        <td>
+                                            <a href="{{ $pengajuan->Berkas() }}">
+                                                {{ $pengajuan->berkas }}
+                                            </a>
+                                        </td>
                                         <td>
                                             @if($pengajuan->status == 1)
                                             <div class="alert alert-primary" role="alert">
@@ -107,6 +114,11 @@ Pengajuan
                                                 Belum diterima
                                             </div>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ $pengajuan->Pesan_instansi() }}">
+                                                {{ $pengajuan->pesan_instansi }}
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach

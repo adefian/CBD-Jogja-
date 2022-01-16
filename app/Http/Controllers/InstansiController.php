@@ -31,24 +31,35 @@ class InstansiController extends Controller
         return back();
     }
 
-    public function pengajuan_setuju($id)
+    public function pengajuan_setuju($id, Request $request)
     {
         $pengajuan = Pengajuan::where('id', $id)->first();
 
+        
+        $fileName = time().'.'.$pengajuan->nama.'.'.$request->pesan_instansi->extension();  
+        
+        $request->pesan_instansi->move(public_path('/assets/user/pesan_instansi/'), $fileName);
+
         $data = [
-            'status' => 2
+            'status' => 2,
+            'pesan_instansi' => $fileName
         ];
 
         $pengajuan->update($data);
         alert()->success('Success', 'Selamat Berhasil Menyetujui Pengajuan ');
         return back();
     }
-    public function pengajuan_tolak($id)
+    public function pengajuan_tolak($id, Request $request)
     {
         $pengajuan = Pengajuan::where('id', $id)->first();
+
+        $fileName = time().'.'.$pengajuan->nama.'.'.$request->pesan_instansi->extension();  
         
+        $request->pesan_instansi->move(public_path('/assets/user/pesan_instansi/'), $fileName);
+
         $data = [
-            'status' => 3
+            'status' => 3,
+            'pesan_instansi' => $fileName
         ];
 
         $pengajuan->update($data);

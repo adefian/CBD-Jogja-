@@ -9,7 +9,7 @@
     </div>
     <div class="top-right">
         <div class="header-menu">
-            <div class="header-left">
+            <!-- <div class="header-left">
                 <button class="search-trigger"><i class="fa fa-search"></i></button>
                 <div class="form-inline">
                     <form class="search-form">
@@ -81,7 +81,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -12,13 +12,13 @@ Pengajuan
         <!--  Traffic  -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card" >
+                <div class="card">
                     <div class="card-header">
                         <h4>Pengajuan</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="dataTable" class="table table-hover table-bordered">
+                            <table id="dataTables" class="table table-hover table-bordered">
                                 <thead class="thead-light">
                                     <tr>
                                         <th style="text-align: center; vertical-align: middle;">No</th>
@@ -29,6 +29,7 @@ Pengajuan
                                         <th style="text-align: center; vertical-align: middle;">Berkas</th>
                                         <th style="text-align: center; vertical-align: middle;">Status Pengajuan</th>
                                         <th style="text-align: center; vertical-align: middle;">Validasi</th>
+                                        <th style="text-align: center; vertical-align: middle;">Berkas Balasan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,12 +42,12 @@ Pengajuan
                                         <td>{{ $data->pesan }}</td>
                                         <td>
                                             <a href="{{ $data->Berkas() }}">
-                                            {{ $data->berkas }}
+                                                {{ $data->berkas }}
                                             </a>
                                         </td>
                                         <td>
                                             @if($data->status == null)
-                                            
+
                                             @elseif($data->status == 1)
                                             <div class="alert alert-primary" role="alert">
                                                 Diproses
@@ -62,40 +63,49 @@ Pengajuan
                                             @endif
                                         </td>
                                         <td>
-                                        @if($data->status == null)
+                                            @if($data->status == null)
                                             <a class="mr-2" href="{{ route('pengajuan.proses', $data->id) }}">
-                                                <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
+                                                <button class="btn btn-primary btn-sm"
+                                                    title="Diproses">Diproses</button>
                                             </a>
-                                        @else
+                                            @else
                                             <a class="mr-2" href="#">
-                                                <button class="btn btn-primary btn-sm" title="Diproses">Diproses</button>
+                                                <button class="btn btn-primary btn-sm"
+                                                    title="Diproses">Diproses</button>
                                             </a>
-                                        @endif
+                                            @endif
 
-                                        @if($data->status == 1)
-                                            <a class="mr-2" href="#" data-toggle="modal" onclick="setujuData({{$data->id}})"
-                                                    data-target="#setujuModal">
-                                                <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
+                                            @if($data->status == 1)
+                                            <a class="mr-2" href="#" data-toggle="modal"
+                                                onclick="setujuData({{$data->id}})" data-target="#setujuModal">
+                                                <button class="btn btn-success btn-sm fa fa-check"
+                                                    title="Disetujui"></button>
                                             </a>
-                                        @else
-                                            <a class="mr-2" href="#"
-                                                    data-target="#setujuModal">
-                                                <button class="btn btn-success btn-sm fa fa-check" title="Disetujui"></button>
+                                            @else
+                                            <a class="mr-2" href="#" data-target="#setujuModal">
+                                                <button class="btn btn-success btn-sm fa fa-check"
+                                                    title="Disetujui"></button>
                                             </a>
-                                        @endif
+                                            @endif
 
-                                        @if($data->status == 1)
+                                            @if($data->status == 1)
                                             <a href="#" data-toggle="modal" onclick="tolakData({{$data->id}})"
-                                                    data-target="#tolakModal">
-                                            <button class="btn btn-danger btn-sm fa fa-times" title="Ditolak"></button>
+                                                data-target="#tolakModal">
+                                                <button class="btn btn-danger btn-sm fa fa-times"
+                                                    title="Ditolak"></button>
                                             </a>
-                                        @else
-                                            <a href="#"
-                                                    data-target="#tolakModal">
-                                            <button class="btn btn-danger btn-sm fa fa-times" title="Ditolak"></button>
+                                            @else
+                                            <a href="#" data-target="#tolakModal">
+                                                <button class="btn btn-danger btn-sm fa fa-times"
+                                                    title="Ditolak"></button>
                                             </a>
-                                        @endif
+                                            @endif
 
+                                        </td>
+                                        <td>
+                                            <a href="{{ $data->Pesan_instansi() }}">
+                                                {{ $data->pesan_instansi }}
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -119,7 +129,7 @@ Pengajuan
 <div id="setujuModal" class="modal fade" role="dialog">
     <div class="modal-dialog ">
         <!-- Modal content-->
-        <form action="" id="setujuForm" method="post">
+        <form action="" id="setujuForm" method="post" enctype="multipart/form-data">
 
             {{ csrf_field() }}
             {{ method_field('POST') }}
@@ -132,8 +142,14 @@ Pengajuan
                 </div>
                 <div class="modal-body">
                     <p>Apakah anda yakin ingin Menyetujui Pengajuan ini ?</p>
-                    <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-success float-right mr-2"  onclick="formSubmit()">Setuju</button>
+
+                    <div class="form-group">
+                        <label>Berkas balasan dari instansi</label>
+                        <input type="file" required class="form-control" id="pesan_instansi" name="pesan_instansi">
+                    </div>
+                    <button type="button" style="margin-left: 3px;" class="btn btn-danger pull-right"
+                        data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success pull-right">Simpan</button>
                 </div>
             </div>
         </form>
@@ -143,7 +159,7 @@ Pengajuan
 <div id="tolakModal" class="modal fade" role="dialog">
     <div class="modal-dialog ">
         <!-- Modal content-->
-        <form action="" id="tolakForm" method="post">
+        <form action="" id="tolakForm" method="post" enctype="multipart/form-data">
 
             {{ csrf_field() }}
             {{ method_field('POST') }}
@@ -155,9 +171,14 @@ Pengajuan
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label>Berkas balasan dari instansi</label>
+                        <input type="file" required class="form-control" id="pesan_instansi" name="pesan_instansi">
+                    </div>
                     <p>Apakah anda yakin ingin Menolak Pengajuan ini ?</p>
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2" onclick="formSubmit()">Menolak</button>
+                    <button type="submit" name="" class="btn btn-danger float-right mr-2"
+                        onclick="formSubmit()">Menolak</button>
                 </div>
             </div>
         </form>
