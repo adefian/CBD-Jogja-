@@ -1,4 +1,3 @@
-
 <footer class="site-footer">
     <div class="footer-inner bg-white">
         <div class="row">
@@ -23,13 +22,14 @@
 <script src="{{asset('public/assets/admin/js/main.js')}}"></script>
 <!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> -->
 
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-
+<script src="{{ asset('public/dataTables/datatables.net/jquery.dataTables.js')}}"></script>
+<script src="{{ asset('public/dataTables/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+<script src="{{ asset('public/dataTables/dataTables.select.min.js')}}"></script>
 <script>
 $(document).ready(function() {
     $('#dataTables').DataTable();
@@ -37,10 +37,10 @@ $(document).ready(function() {
 </script>
 
 <!--  Chart js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script> -->
 
 <!--Chartist Chart-->
-<script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-<script src="{{asset('public/assets/admin/js/init/fullcalendar-init.js')}}"></script>
+<script src="{{asset('public/assets/admin/js/init/fullcalendar-init.js')}}"></script> -->
 <!-- <script src="{{asset('public/dataTables/dataTables.min.js')}}"></script> -->
 
 <!-- Select2 -->

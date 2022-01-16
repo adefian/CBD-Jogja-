@@ -35,20 +35,20 @@ Bangunan
                             <table id="dataTables" class="table table-hover table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Objek
+                                        <th style="text-align: center; vertical-align: middle;">No</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Objek
                                         </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Kegiatan
+                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan
                                         </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Alamat
+                                        <th style="text-align: center; vertical-align: middle;">Alamat
                                             Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Titik
+                                        <th style="text-align: center; vertical-align: middle;">Titik
                                             Koordinat X</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Titik
+                                        <th style="text-align: center; vertical-align: middle;">Titik
                                             Koordinat Y</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto
+                                        <th style="text-align: center; vertical-align: middle;">Foto
                                             Bangunan</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
+                                        <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -36,20 +36,14 @@ Benda
                             <table id="dataTables" class="table table-hover table-bordered" style="width:100%">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Benda
-                                        </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Kegiatan
-                                        </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Tempat
-                                            Penyimpanan</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Alamat
-                                            Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengelola
-                                        </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto Benda
-                                        </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
+                                        <th style="text-align: center; vertical-align: middle;">No</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Benda</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Tempat Penyimpanan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Alamat Lengkap</th>
+                                        <th style="text-align: center; vertical-align: middle;">Pengelola</th>
+                                        <th style="text-align: center; vertical-align: middle;">Foto Benda</th>
+                                        <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,7 +109,8 @@ Benda
                     <p>Apakah anda yakin ingin Menghapus data ini ?</p>
 
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="" class="btn btn-danger float-right mr-2" onclick="formSubmit()">Hapus</button>
+                    <button type="submit" name="" class="btn btn-danger float-right mr-2"
+                        onclick="formSubmit()">Hapus</button>
                 </div>
             </div>
         </form>

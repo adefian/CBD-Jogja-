@@ -36,15 +36,15 @@ Kawasan
                             <table id="dataTables" class="table table-hover table-bordered">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Objek</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Kegiatan</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Alamat Lengkap</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Kondisi</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Sejarah </th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Deskripsi</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Foto Struktur</th>
-                                        <th rowspan="2" style="text-align: center; vertical-align: middle;">Aksi</th>
+                                        <th style="text-align: center; vertical-align: middle;">No</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Objek</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nama Kegiatan</th>
+                                        <th style="text-align: center; vertical-align: middle;">Alamat Lengkap</th>
+                                        <th style="text-align: center; vertical-align: middle;">Kondisi</th>
+                                        <th style="text-align: center; vertical-align: middle;">Sejarah </th>
+                                        <th style="text-align: center; vertical-align: middle;">Deskripsi</th>
+                                        <th style="text-align: center; vertical-align: middle;">Foto Struktur</th>
+                                        <th style="text-align: center; vertical-align: middle;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
