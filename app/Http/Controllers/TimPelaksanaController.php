@@ -103,7 +103,7 @@ class TimPelaksanaController extends Controller
 
         $tim_pelaksana->delete();
 
-        toast('Berhasil Mengubah Data Tim Pelaksana', 'success');
+        toast('Berhasil Menghapus Data Tim Pelaksana', 'success');
         return back();
     }
 

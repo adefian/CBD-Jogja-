@@ -7,6 +7,9 @@ use App\User;
 use App\Masyarakat;
 use App\Pengajuan;
 use App\Saran;
+use App\CagarBudaya;
+use Auth;
+use View;
 
 class UserMasyarakatController extends Controller
 {
@@ -15,13 +18,16 @@ class UserMasyarakatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function dashboard($id)
     {
+        $message = Pengajuan::where('status', '>=', 2)->where('id_users', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        
         $user = User::find($id);
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
-        return view('user_umum.profil.dashboard', compact('user', 'masyarakat'));
+        return view('user_umum.profil.dashboard', compact('user', 'masyarakat', 'message'));
     }
 
     public function pengajuan($id)
@@ -31,7 +37,9 @@ class UserMasyarakatController extends Controller
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
         $pengajuan = Pengajuan::where('id_users', $id)->orderBy('id', 'DESC')->get();
-        return view('user_umum.pengajuan.index', compact('user', 'pengajuan', 'masyarakat'));
+        $message = Pengajuan::where('status', '>=', 2)->where('id_users', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        
+        return view('user_umum.pengajuan.index', compact('message', 'user', 'pengajuan', 'masyarakat'));
     }
 
     public function pengajuan_create($id, Request $request)
@@ -77,7 +85,9 @@ class UserMasyarakatController extends Controller
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
-        return view('user_umum.profil.index', compact('user', 'masyarakat'));
+        $message = Pengajuan::where('status', '>=', 2)->where('id_users', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        
+        return view('user_umum.profil.index', compact('message', 'user', 'masyarakat'));
 
     }
     public function detail_profil($id)
@@ -87,7 +97,9 @@ class UserMasyarakatController extends Controller
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
 
-        return view('user_umum.profil.detail_profil', compact('user', 'masyarakat'));
+        $message = Pengajuan::where('status', '>=', 2)->where('id_users', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        
+        return view('user_umum.profil.detail_profil', compact('message', 'user', 'masyarakat'));
 
     }
 
@@ -118,7 +130,9 @@ class UserMasyarakatController extends Controller
         $user = User::find($id);
 
         $masyarakat = Masyarakat::where('id_users', $id)->first();
-        return view('user_umum.profil.ganti_password', compact('user', 'masyarakat'));
+        $message = Pengajuan::where('status', '>=', 2)->where('id_users', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        
+        return view('user_umum.profil.ganti_password', compact('message', 'user', 'masyarakat'));
     }
 
     public function profil_update_password($id, Request $request)
@@ -141,6 +155,14 @@ class UserMasyarakatController extends Controller
 
         toast ('Terimakasih Telah Menambahkan Saran', 'success');
         return back();
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->cari;
+        $cagar_budaya = CagarBudaya::where('nama', 'like', "%" . $cari . "%")->get();
+
+        return view('user_umum.cari', compact('cagar_budaya', 'cari'));
     }
 
 }

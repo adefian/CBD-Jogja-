@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengajuan;
+use App\CagarBudaya;
+use App\Kegiatan;
+use App\TimPelaksana;
 
 class InstansiController extends Controller
 {
     public function index()
     {
-        return view('instansi.dashboard');
+        $pengajuan = Pengajuan::all();
+        $cagar_budaya = CagarBudaya::all();
+        $kegiatan = Kegiatan::all();
+        $tim_pelaksana = TimPelaksana::all();
+
+        return view('instansi.dashboard', compact('pengajuan', 'cagar_budaya', 'kegiatan', 'tim_pelaksana'));
     }
     public function pengajuan()
     {

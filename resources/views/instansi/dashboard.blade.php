@@ -14,11 +14,11 @@ Dashboard
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-cash"></i>
+                                <i class="pe-7s-file"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">8</span></div>
+                                    <div class="stat-text"><span class="count">{{ $pengajuan->count() }}</span></div>
                                     <div class="stat-heading">Jumlah Pengajuan</div>
                                 </div>
                             </div>
@@ -32,12 +32,12 @@ Dashboard
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-cart"></i>
+                                <i class="pe-7s-folder"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">4</span></div>
-                                    <div class="stat-heading">Jumlah Perizinan</div>
+                                    <div class="stat-text"><span class="count">{{ $cagar_budaya->count() }}</span></div>
+                                    <div class="stat-heading">Jumlah Cagar Budaya</div>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +54,8 @@ Dashboard
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">349</span></div>
-                                    <div class="stat-heading">Jumlah Penelitian</div>
+                                    <div class="stat-text"><span class="count">{{ $kegiatan->count() }}</span></div>
+                                    <div class="stat-heading">Jumlah Kegiatan</div>
                                 </div>
                             </div>
                         </div>
@@ -68,11 +68,11 @@ Dashboard
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-4">
-                                <i class="pe-7s-users"></i>
+                                <i class="pe-7s-browser"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">2986</span></div>
+                                    <div class="stat-text"><span class="count">{{ $tim_pelaksana->count() }}</span></div>
                                     <div class="stat-heading">Jumlah Cagar Budaya</div>
                                 </div>
                             </div>

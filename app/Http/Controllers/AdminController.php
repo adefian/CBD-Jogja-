@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pengajuan;
 use App\CagarBudaya;
+use App\Kegiatan;
+use App\TimPelaksana;
 use App\Saran;
 use Alert;
 
@@ -19,7 +21,10 @@ class AdminController extends Controller
     {
         $pengajuan = Pengajuan::all();
         $cagar_budaya = CagarBudaya::all();
-        return view('admin.dashboard', compact('pengajuan', 'cagar_budaya'));
+        $kegiatan = Kegiatan::all();
+        $tim_pelaksana = TimPelaksana::all();
+
+        return view('admin.dashboard', compact('pengajuan', 'cagar_budaya', 'kegiatan', 'tim_pelaksana'));
     }
 
     public function saran()

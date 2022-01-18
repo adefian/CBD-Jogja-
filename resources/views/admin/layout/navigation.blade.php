@@ -6,7 +6,7 @@
                     <a href="{{ route('admin') }}"><i class="menu-icon fa fa-home"></i>Dashboard </a>
                 </li>
                 <li class="{{(request()->is('pengguna')) ? 'active' : ''}}">
-                    <a href="{{ route('pengguna') }}"> <i class="menu-icon fa fa-user"> </i>Pengguna</a>
+                    <a href="{{ route('pengguna.index') }}"> <i class="menu-icon fa fa-user"> </i>Pengguna</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building"></i>Cagar Budaya</a>

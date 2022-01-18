@@ -60,6 +60,8 @@ Route::get('/register', 'AuthController@register')->middleware('guest')->name('r
 Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
+Route::post('/cari', 'UserMasyarakatController@cari')->name('cari');
+
 // select2
 // Route::get('/provinces', 'DaerahController@provinces_select')->name('provinces.select');
 // Route::get('/regencies', 'DaerahController@regencies_select')->name('regencies.select');
@@ -139,6 +141,7 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     Route::resource('/kegiatan', 'KegiatanController');
     // ========================= END KEGIATAN =================================
     
+    Route::resource('/pengguna', 'PenggunaController');
 
     Route::get('/saran', 'AdminController@saran')->name('saran.index');
 

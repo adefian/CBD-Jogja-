@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Masyarakat;
 
 class PenggunaController extends Controller
 {
@@ -13,7 +15,9 @@ class PenggunaController extends Controller
      */
     public function index()
     {
-        return view('admin.pengguna.index');
+        $data = User::orderBy('name', 'ASC')->get();
+
+        return view('admin.pengguna.index', compact('data'));
     }
 
     /**
@@ -79,6 +83,14 @@ class PenggunaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::find($id);
+
+        $masyarakat = Masyarakat::where('id_users', $id)->first();
+
+        $masyarakat->delete();
+        $data->delete();
+
+        toast('Berhasil Menghapus Data User', 'success');
+        return back();
     }
 }

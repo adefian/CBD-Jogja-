@@ -42,6 +42,19 @@
           <!-- <li><a class="nav-link scrollto" href="#">PENCARIAN</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#contact">KONTAK</a></li> -->
           <li><a class="nav-link scrollto" href="{{ route('login') }}">LOGIN</a></li>
+          <li>
+            <div style="margin-left: 10px; margin-top: 3px;">
+              <form action="{{ route('cari') }}" method="post" role="form">
+                {{ csrf_field() }}
+                <div class="input-group ml-3">
+                  <input type="text" name="cari" class="form-control" id="name" placeholder="Nama Cagar Budaya ...." required>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-success"><i class="bi bi-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
           <!-- <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a> -->
         </ul>
           <!-- <img src="{{asset('public/image/user.png')}}" width="27px" height="27px" style="margin-left: 12px" class=""> -->
