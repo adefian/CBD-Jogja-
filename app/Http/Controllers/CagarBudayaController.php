@@ -365,7 +365,7 @@ class CagarBudayaController extends Controller
             $nama_file = "Foto_CBKawasan_".time(). ".jpeg";
             $file->move(public_path() . '/Images/cagar_budaya/', $nama_file);  
             $data[0]['foto'] = $nama_file;
-            $data[0]['kategori'] = 'Kawasan';
+            $data[0]['kategori'] = 'kawasan';
         }
 
         CagarBudaya::create($data[0]);

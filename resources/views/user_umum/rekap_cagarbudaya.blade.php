@@ -19,9 +19,9 @@
             <div class="row">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="{{ route('rekap_cagarbudaya') }}" role="tab"
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#" role="tab"
                             aria-controls="nav-home" aria-selected="true">Rekap Cagar Budaya</a>
-                        <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="#" role="tab"
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{{ route('rekap') }}" role="tab"
                             aria-controls="nav-contact" aria-selected="false">Rekap Perizinan</a>
                     </div>
                 </nav>
@@ -39,30 +39,30 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Bulan</th>
-                                            <th>Jumlah Perizinan</th>
+                                            <th>Kategori</th>
+                                            <th>Jumlah Cagar Budaya</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($data_rekap as $data => $v)
+                                        @foreach($nilai as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                {{ $v['bulan'] }}
+                                                {{ $data['kategori'] }}
                                             </td>
-                                            <td>{{ $v['jumlah'] }}</td>
+                                            <td>{{ $data['nilai'] }}</td>
                                         </tr>
                                         @endforeach
-                                    </tbody>
+                                    </tbody>    
                                 </table>
 
                             </div>
                         </div>
                         <!-- <div class="row mt-4">
-                            <div class="col-md-12" style="background:rgb(255, 255, 255)">
-                                <canvas id="myChart" width="200" height="70"></canvas>
-                        
-                            </div>
+                        <div class="col-md-12" style="background:rgb(255, 255, 255)">
+                            <canvas id="myChart" width="200" height="70"></canvas>
+                    
+                        </div>
                         </div> -->
                     </div>
                 </div>
@@ -91,11 +91,11 @@
 
 @endforeach
 
-@foreach ($data2 as $data)
+@foreach ($nilai2 as $data)
 
 <script type="text/javascript">
     //Memasukkan data tabel nama kriteria ke array
-    array2.push(['<?php echo $data->count()?>']);
+    array2.push(['<?php echo $data?>']);
 </script> 
 
 @endforeach
@@ -107,7 +107,7 @@ type: 'line',
 data: {
     labels: array,
     datasets: [{
-        label: ' Rekap Perizinan ',
+        label: ' Rekap Cagar Budaya ',
         data: array2,
         backgroundColor: [
             'rgb(34,139,34)',
