@@ -61,13 +61,19 @@ class InstansiController extends Controller
     {
         $pengajuan = Pengajuan::where('id', $id)->first();
 
-        $fileName = time().'.'.$pengajuan->nama.'.'.$request->pesan_instansi->extension();  
-        
-        $request->pesan_instansi->move(public_path('/assets/user/pesan_instansi/'), $fileName);
+        if($request->pesan_instansi){
+
+            $fileName = time().'.'.$pengajuan->nama.'.'.$request->pesan_instansi->extension();  
+            
+            $request->pesan_instansi->move(public_path('/assets/user/pesan_instansi/'), $fileName);
+            
+            $data = [
+                'pesan_instansi' => $fileName
+            ];
+        }
 
         $data = [
             'status' => 3,
-            'pesan_instansi' => $fileName
         ];
 
         $pengajuan->update($data);
