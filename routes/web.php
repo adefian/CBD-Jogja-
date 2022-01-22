@@ -34,25 +34,11 @@ Route::get('/peta', function () {
     return view('user_umum.peta', compact('cagar_budaya'));
 })->name('peta');
 
-Route::get('/rekap', function () {
-    $rekap = CagarBudaya::orderBy('id', 'desc')->get();
-    
-    $data = Pengajuan::select([
-        DB::raw('count(id) as `count`'), 
-        DB::raw('MONTH(updated_at) as month')
-    ])->groupBy('month')
-    ->get();
-
-    $bulan = [
-        1 => 'Januari',
-        2 => 'Februari',
-        3 => 'Maret',
-    ];
-
-    return view('user_umum.rekap', compact('rekap', 'data', 'bulan'));
-})->name('rekap');
+Route::get('/rekap', 'RekapController@rekap_perizinan')->name('rekap');
+Route::get('/rekap_cagarbudaya', 'RekapController@rekap_cagarbudaya')->name('rekap_cagarbudaya');
 
 Auth::routes();
+
 
 Route::get('/login', 'AuthController@login')->middleware('guest')->name('login');
 Route::post('/doLogin', 'AuthController@doLogin')->name('doLogin');
