@@ -171,10 +171,10 @@ Pengajuan
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Berkas balasan dari instansi</label>
                         <input type="file" class="form-control" id="pesan_instansi" name="pesan_instansi">
-                    </div>
+                    </div> -->
                     <p>Apakah anda yakin ingin Menolak Pengajuan ini ?</p>
                     <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
                     <button type="submit" name="" class="btn btn-danger float-right mr-2"
