@@ -25,7 +25,7 @@ class Masyarakat extends Model
     public function Foto()
     {
         if(!$this->foto){
-            return asset('public/assets/user/img/foto/default.png');
+            return asset('public/assets/user/img/foto/user.jpg');
         }else{
             return asset('public/assets/user/img/foto/'.$this->foto);
         }

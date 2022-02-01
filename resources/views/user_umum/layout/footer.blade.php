@@ -1,6 +1,7 @@
 <footer id="footer">
     <div class="container">
-    <a href="#" class="logo "><img src="{{asset('public/assets/user/img/logobpcb.png')}}" width="80px" height="auto"></a>
+    <a href="#" class="logo mr-2"><img src="{{asset('public/assets/user/img/logobpcb.png')}}" width="80px" height="auto"></a>
+    <a href="#" class="logo "><img src="{{asset('public/assets/user/img/logo-poliwangi.png')}}" width="80px" height="auto"></a>
       <h2>SISTEM INFORMASI CAGAR BUDAYA</h2>
       <!-- <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p> -->
       <!-- <div class="social-links">
@@ -18,7 +19,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+        Created by <a href="https://poliwangi.ac.id/">Mahasiswa Poliwangi</a> Arum Indah Sari
       </div>
     </div>
   </footer><!-- End Footer -->

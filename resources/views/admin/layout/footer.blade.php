@@ -3,6 +3,8 @@
         <div class="row">
             <div class="col-sm-6">
                 Copyright &copy; Balai Pelestarian Cagar Budaya Daerah Istimewa Yogyakarta
+                <br> Created by <a style="color:blue" href="https://poliwangi.ac.id/">Mahasiswa Poliwangi</a> Arum Indah Sari
+            
             </div>
             <div class="col-sm-6 text-right">
                 2021

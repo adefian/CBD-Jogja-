@@ -18,7 +18,7 @@ use App\Pengajuan;
 */
 
 Route::get('/', function () {
-    $total_cagar_budaya = CagarBudaya::count();
+    $total_cagar_budaya = CagarBudaya::all();
     $cagar_budaya = CagarBudaya::orderBy('id', 'desc')->take(9)->get();
     return view('user_umum.home', compact('cagar_budaya', 'total_cagar_budaya'));
 })->name('home');

@@ -191,7 +191,7 @@
                             </svg>
                             <i class="bx bx-arch"></i>
                         </div>
-                        <h1>{{ $total_cagar_budaya }}</h1>
+                        <h1>{{ $total_cagar_budaya->count() }}</h1>
                         <h4>CAGAR BUDAYA DI DAERAH ISTIMEWA YOGYAKARTA</h4>
                         <!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> -->
                     </div>
@@ -227,69 +227,14 @@
 
             <div class="row portfolio-container">
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-benda">
+            @foreach($total_cagar_budaya as $data)
+                <div class="col-lg-4 col-md-6 portfolio-item filter-{{$data->kategori}}">
                     <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/kapak.png')}}" class="img-fluid" alt="">
+                        <img src="{{ $data->Foto_CB() }}" class="img-fluid" alt="">
                     </div>
                 </div>
+            @endforeach
 
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bangunan">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/candi-sari.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-struktur">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/payak.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-situs">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/boko.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kawasan">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/kubur-batu-gondang.jpg')}}" class="img-fluid"
-                            alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-benda">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/kapak-persegi.JPG')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-bangunan">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/kraton-yogyakarta.jpg')}}" class="img-fluid"
-                            alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-situs">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/warung-boto.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kawasan">
-                    <div class="portfolio-wrap">
-                        <img src="{{asset('public/assets/user/img/cb/tamansari.jpg')}}" class="img-fluid" alt="">
-                    </div>
-                </div>
             </div>
 
         </div>

@@ -12,7 +12,7 @@
 
             <div class="section-title">
                 <h2>Rekap <br> Cagar Budaya</h2>
-                <h5>Dibawah ini adalah Rekap Objek Temuan Lama, Rekap Objek Temuan Baru, Rekap Objek Tidak Ditemukan dan
+                <h5>Dibawah ini adalah Rekap Cagar Budaya dan
                     Rekap Perizinan </h5>
             </div>
 

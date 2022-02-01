@@ -73,7 +73,7 @@ Dashboard
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{ $tim_pelaksana->count() }}</span></div>
-                                    <div class="stat-heading">Jumlah Cagar Budaya</div>
+                                    <div class="stat-heading">Jumlah Tim Pelaksana</div>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +88,10 @@ Dashboard
                     <div class="card-body text-center">
                         <!-- <h3>Selamat Datang </h3> -->
                         <img src="{{asset('public/assets/admin/images/logobpcb.png')}}"
-                            style="width: 340px; height: auto;" alt="">
-                        <h3 style="color: green;"><b>BALAI PELESTARIAN CAGAR BUDAYA DAERAH ISTIMEWA YOGYAKARTA</b></h3>
+                            style="width: 221px; height: auto; margin-right:20px;" alt="">
+                        <img src="{{asset('public/assets/admin/images/logo-poliwangi.png')}}"
+                            style="width: 200px; height: auto;" alt="">
+                        <h3 style="color: green; margin-top: 100px;"><b>BALAI PELESTARIAN CAGAR BUDAYA DAERAH ISTIMEWA YOGYAKARTA</b></h3>
                     </div>
                     <div>
 
